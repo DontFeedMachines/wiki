@@ -1,0 +1,29 @@
+{
+  "site": {
+    "title": "Don't Feed Machines | Wiki",
+    "logo": "/src/assets/logo_retro_1bit_3d.png",
+    "logo_darkmode": "/src/assets/logo_retro_1bit_3d.png",
+    "logo_width": "100",
+    "logo_height": "100",
+    "logo_text": "DFM"
+  },
+
+  "settings": {
+    "search": true,
+    "theme_switcher": true
+  },
+
+  "params": {
+    "footer_contact": {
+      "enable": true,
+      "action": "#"
+    },
+    "copyright": "Designed and Developed by <a class=\"text-primary hover:underline no-underline\" href=\"https://svde.rip\" target=\"_blank\" rel=\"noopener\" aria-label=\"SVDE\">SVDE</a> Copyright &copy; 2025."
+  },
+
+  "navigation_button": {
+    "enable": true,
+    "label": "Get Started",
+    "link": "/projects/"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "dockit-astro",
+  "version": "1.0.1",
+  "description": "DocKit Astro is a simple, modern documentation theme built using Astro and Tailwind CSS",
+  "author": "Themefisher",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "deploy:cf-workers": "npm run build && wrangler deploy",
+    "preview:cf-workers": "npm run build && wrangler dev"
+  },
+  "dependencies": {
+    "@astro-community/astro-embed-youtube": "^0.5.10",
+    "@astrojs/starlight": "0.42.3",
+    "@astrojs/starlight-tailwind": "5.0.0",
+    "@pagefind/default-ui": "^1.5.2",
+    "@tailwindcss/vite": "^4.3.1",
+    "astro": "7.3.4",
+    "astro-font": "^1.1.0",
+    "marked": "^18.0.5",
+    "sharp": "^0.35.2",
+    "vite": "^8.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@astrojs/markdown-remark": "^7.3.1",
+    "acorn": "^8.18.0",
+    "astro-vtbot": "^2.1.12",
+    "estree-walker": "^3.0.3",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3",
+    "unist-util-visit": "^5.1.0",
+    "wrangler": "^4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
+  }
+}

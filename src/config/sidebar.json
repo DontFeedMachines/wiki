@@ -1,0 +1,21 @@
+{
+  "main": [
+    {
+      "label": "Guides",
+      "items": [
+        { "label": "Example Guide", "slug": "guides/example" }
+      ]
+    },
+    {
+      "label": "Reference",
+      "items": [{ "autogenerate": { "directory": "reference" } }]
+    },
+    {
+      "label": "DFM Toolkit Projects",
+      "items": [
+        { "label": "Smart Dust Sweeper", "slug": "projects/hardware-access/smart-dust-sweeper" },
+        { "autogenerate": { "directory": "projects" } }
+      ]
+    }
+  ]
+}
