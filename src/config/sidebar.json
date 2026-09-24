@@ -1,21 +1,19 @@
 {
   "main": [
     {
-      "label": "Guides",
+      "label": "Toolkit",
       "items": [
-        { "label": "Example Guide", "slug": "guides/example" }
+        { "label": "Smart Dust Sweeper", "slug": "toolkit/hardware-access/smart-dust-sweeper" },
+        { "autogenerate": { "directory": "toolkit" } }
       ]
     },
     {
-      "label": "Reference",
-      "items": [{ "autogenerate": { "directory": "reference" } }]
+      "label": "How-To",
+      "items": [{ "autogenerate": { "directory": "how-to" } }]
     },
     {
-      "label": "DFM Toolkit Projects",
-      "items": [
-        { "label": "Smart Dust Sweeper", "slug": "projects/hardware-access/smart-dust-sweeper" },
-        { "autogenerate": { "directory": "projects" } }
-      ]
+      "label": "FAQ",
+      "items": [{ "autogenerate": { "directory": "faq" } }]
     }
   ]
 }
