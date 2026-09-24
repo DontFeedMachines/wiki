@@ -1,8 +1,8 @@
 {
-  "name": "dockit-astro",
+  "name": "dfm-wiki",
   "version": "1.0.1",
-  "description": "DocKit Astro is a simple, modern documentation theme built using Astro and Tailwind CSS",
-  "author": "Themefisher",
+  "description": "Documentation & Wiki site for DFM",
+  "author": "SVDE",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -11,8 +11,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "deploy:cf-workers": "npm run build && wrangler deploy",
-    "preview:cf-workers": "npm run build && wrangler dev"
+    "deploy:cf-workers": "pnpm run build && wrangler deploy",
+    "preview:cf-workers": "pnpm run build && wrangler dev"
   },
   "dependencies": {
     "@astro-community/astro-embed-youtube": "^0.5.10",
