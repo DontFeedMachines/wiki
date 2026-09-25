@@ -2,27 +2,27 @@
   "main": [
     {
       "label": "Toolkit",
-      "autogenerate": { "directory": "toolkit" }
+      "items": [{ "autogenerate": { "directory": "toolkit" } }]
     },
     {
       "label": "How-To",
-      "autogenerate": { "directory": "how-to" }
+      "items": [{ "autogenerate": { "directory": "how-to" } }]
     },
     {
       "label": "Guides",
-      "autogenerate": { "directory": "guides" }
+      "items": [{ "autogenerate": { "directory": "guides" } }]
     },
     {
       "label": "FAQ",
-      "autogenerate": { "directory": "faq" }
+      "items": [{ "autogenerate": { "directory": "faq" } }]
     },
     {
       "label": "Legal",
-      "autogenerate": { "directory": "legal" }
+      "items": [{ "autogenerate": { "directory": "legal" } }]
     },
     {
       "label": "Licensing",
-      "autogenerate": { "directory": "licensing" }
+      "items": [{ "autogenerate": { "directory": "licensing" } }]
     }
   ]
 }
