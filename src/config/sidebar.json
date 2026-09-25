@@ -2,18 +2,27 @@
   "main": [
     {
       "label": "Toolkit",
-      "items": [
-        { "label": "Smart Dust Sweeper", "slug": "toolkit/hardware/hardware-access/smart-dust-sweeper" },
-        { "autogenerate": { "directory": "toolkit" } }
-      ]
+      "autogenerate": { "directory": "toolkit" }
     },
     {
       "label": "How-To",
-      "items": [{ "autogenerate": { "directory": "how-to" } }]
+      "autogenerate": { "directory": "how-to" }
+    },
+    {
+      "label": "Guides",
+      "autogenerate": { "directory": "guides" }
     },
     {
       "label": "FAQ",
-      "items": [{ "autogenerate": { "directory": "faq" } }]
+      "autogenerate": { "directory": "faq" }
+    },
+    {
+      "label": "Legal",
+      "autogenerate": { "directory": "legal" }
+    },
+    {
+      "label": "Licensing",
+      "autogenerate": { "directory": "licensing" }
     }
   ]
 }
