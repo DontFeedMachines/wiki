@@ -3,7 +3,7 @@
     {
       "label": "Toolkit",
       "items": [
-        { "label": "Smart Dust Sweeper", "slug": "toolkit/hardware-access/smart-dust-sweeper" },
+        { "label": "Smart Dust Sweeper", "slug": "toolkit/hardware/hardware-access/smart-dust-sweeper" },
         { "autogenerate": { "directory": "toolkit" } }
       ]
     },
