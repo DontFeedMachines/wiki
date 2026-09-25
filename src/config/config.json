@@ -1,8 +1,8 @@
 {
   "site": {
     "title": "Don't Feed Machines | Wiki",
-    "logo": "/src/assets/logo_retro_1bit_3d.png",
-    "logo_darkmode": "/src/assets/logo_retro_1bit_3d.png",
+    "logo": "/src/content/docs/assets/logos/dfm_icon.png",
+    "logo_darkmode": "/src/content/docs/assets/logos/dfm_icon.png",
     "logo_width": "100",
     "logo_height": "100",
     "logo_text": "DFM"
