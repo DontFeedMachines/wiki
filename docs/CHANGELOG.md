@@ -1,6 +1,12 @@
 # Changelog // Don't Feed Machines // WIKI v1.0.2
 
 
+## [Unreleased] 2026-11-20
+
+### Fixed
+
+- `builds/index.mdx` now imports `LinkCard` from the starlight components, which fixes the build error on the `/builds` page
+
 ## [Unreleased] 2026-11-18
 
 ### Changed
