@@ -1,0 +1,75 @@
+---
+title: "@DONTFEEDMACHINES/TOOLKIT"
+description: "the shared package: astro components, base css, analyzers, generators, seal code, the crawler registry"
+sidebar:
+  order: 1
+---
+
+**@dontfeedmachines/fieldkit** is the shared code underneath every sector & the wiki in a single package. fix or add something here and it is ported out to everywhere that imports it. it is why [synthstop](/ecosystem/sectors/synthstop/)'s bench, [stopthescrape](/ecosystem/sectors/stopthescrape/)'s ledger and [humanlayer](/ecosystem/sectors/humanlayer/)'s seals behave the same way without three copies of the logic and why expanding new projects becomes negligible. 
+
+## Anatomy
+
+1. `pouches/sutures/astro/` holds the shared .astro components and their barrel, `index.ts`. this requires astro as a framework.
+2. `css/` holds `base.css`, the fallback variables each site overrides on `:root`.
+3. `src/elements.ts` holds the web components & the sector list.
+4. `src/lib/` is plain typescript with no framework: the analyzers, the generators, `seal`, `glyph`, `rand`.
+5. `src/node/` is the build-time half: `registry`, `seal` for page seals, and `astro` for the integration glue.
+6. `src/wiki/` holds the Starlight/wiki integration (`fieldkitWiki`).
+
+running a base of plain typescript is a choice optimized for translation across many different formats, sites, frameworks, etc. the analyzers and the seal have to run in a browser bench, a node build and a sveltekit server without being rewritten for each.
+
+## Use It
+
+install it from npm (`@dontfeedmachines/fieldkit`), or add it in a pnpm workspace:
+
+```
+"@dontfeedmachines/fieldkit": "workspace:*"
+```
+
+then import what you need:
+
+```astro
+---
+import { ThreatLevel, SpecTable, BuildSteps } from '@dontfeedmachines/fieldkit/astro';
+import Header from '@dontfeedmachines/fieldkit/astro/Header.astro';
+---
+```
+
+```ts
+import "@dontfeedmachines/fieldkit/base.css";
+import { boot } from "@dontfeedmachines/fieldkit/elements";
+import { seal } from "@dontfeedmachines/fieldkit/lib/seal";
+import { loadCrawlers } from "@dontfeedmachines/fieldkit/node/registry";
+```
+
+in MDX the import goes in the body, under the frontmatter, the same way the toolkit entries import Starlight's own components. 
+
+## The Logic
+
+the browser-side library (`src/lib`) is the core toolbox:
+
+1. **the analyzers**, which are the bench's five reads: `tells` for stock phrases, `synthdiff` for the statistical fingerprint of generated text, `styledna` for the style signature, `watermark` for embedded marks, and `probe` for provenance.
+2. **the generators:** `generators`, `glyph`, `rand` that build the poison & decoy material, and the ansi glyphwork.
+3. **the declarators: `seal`**, the BLOODOATH signing and verification, and `scrapeview` for the crawler's-eye view of a page.
+
+on the node side, `registry` loads & categorizes the crawler ledger from `CRAWLERS.AI.md`, and `seal` applies page seals during a static build.
+
+every sector pulls from it. stopthescrape's traffic and lights pages call `registry` to load the ledger. synthstop's bench runs the analyzers in the browser. humanlayer and the static builds both seal pages through the same Ed25519 `seal` code, one path in browser and server. one package is what stops those behaviors from drifting apart.
+
+## The Components
+
+21 astro components, flat in `astro/`. only custom or heavily modified ones live there. unmodified stock DocKit and Starlight files stay in the app that uses them.
+
+the generic set is in the barrel and works on any astro site: `BomTable`, `BuildStep`, `BuildSteps`, `Difficulty`, `Glossary`, `Grid`, `ImageMod`, `InteractiveCircuit`, `LegalWarning`, `SpecTable`, `ThreatLevel`, `ThreatModel`. this wiki's own entries lean on them for parts lists, step sequences and spec tables.
+
+the wiki-only set is imported by path: `AnsiLogo`, `Footer`, `Header`, `Hero`, `PageFrame`, `Search`, `SidebarSublist`, `SiteTitle`, `TwoColumnContent`. they read the consuming app's `@/config`, `@/lib` and `@/components`, so they only build inside dfm-wiki. they stay in the package until they take their config as props.
+
+`ImageMod` reads images from the consuming project's `src/assets`, so it renders nothing until that project has the file it points at.
+
+## Peers
+
+both peer dependencies are optional, so a site installs only what it uses: `astro` (`>=5.0.0`) for `astro/`, and `@astrojs/starlight` (`>=0.30.0`) for the wiki-only components.
+
+## Where It Sits
+
+the package is published as `@dontfeedmachines/fieldkit`. Grid and the BuildStep, Glossary, InteractiveCircuit, SpecTable and ThreatLevel family derive from the DocKit theme by Themefisher (MIT). the full list is in `CREDITS.md` inside the package.

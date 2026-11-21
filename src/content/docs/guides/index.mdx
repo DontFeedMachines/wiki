@@ -1,0 +1,22 @@
+---
+title: "Guides README"
+description: "deep dives into counter-surveillance theory, hardware builds, firmware, and toolkit usage"
+sidebar:
+  order: 0
+---
+
+import { CardGrid, Card, LinkCard } from '@astrojs/starlight/components';
+
+this section covers the underlying engineering, threat models, firmware verification, and toolkit usage.
+
+## Focus Areas
+
+## Toolkit & Firmware
+
+<CardGrid>
+  <LinkCard title="Firmware Guide" description="what firmware does on a DFM board, why it is open, and how to verify a file before flashing." href="/guides/firmware/" />
+  <LinkCard title="Build Guides" description="hardware build walkthroughs, parts lists, and troubleshooting." href="/guides/builds/" />
+  <LinkCard title="Hardware Overview" description="the physical build drawers and how an entry is laid out." href="/guides/toolkit/hardware/" />
+  <LinkCard title="Software Overview" description="the software drawers, how a tool is run, and its at-a-glance table." href="/guides/toolkit/software/" />
+  <LinkCard title="Middleware Overview" description="server, npm, and web-embed builds of a tool." href="/guides/toolkit/middleware/" />
+</CardGrid>

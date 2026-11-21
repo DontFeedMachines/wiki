@@ -1,0 +1,55 @@
+---
+title: "TruthSerum"
+description: "type in a company or a product, get back what it actually does with you"
+sidebar:
+  badge:
+    text: Design
+    variant: caution
+draft: true
+---
+
+## OVERVIEW
+
+**TRUTH SERUM** is the dfm analyzer. you give it a company, a product, an app store link, or a url, and it hands back a report on privacy, data practices, ai use, and whether the thing deserves your trust. every claim in that report links to its source.
+
+terms of service are written to be skimmed and agreed to. truthserum reads them for you, pulls the clauses that matter to the top, and shows you the receipts.
+
+## WHAT YOU CAN FEED IT
+
+1. a product or company url, like a homepage or a store page.
+2. an ios app store or google play link.
+3. a product name or a company name.
+
+a live search suggests verified entities as you type, each tagged as a company, app, website, or hardware.
+
+## WHAT THE REPORT COVERS
+
+1. **policies.** a plain summary of the privacy policy, with any "we sell your data" or "we share with third parties" clause called out. hostile terms pulled from the tos: forced arbitration, ip grabs, non-disparagement. a history of quiet changes for the worse, and a readability score for how deliberately confusing the legalese is.
+2. **ai policies, the dfm core.** does it train on what users make, and is that opt-in, opt-out, or no choice? does it scrape the open web and respect robots.txt? does it claim copyright over ai outputs? does an ai make serious decisions about you, bans, credit, hiring, with no human in the loop?
+3. **tracking and retention.** the embedded trackers by name, the exact kinds of data kept (location, biometric, financial, browsing, chat logs), how hard it is to delete your account, how long until data is truly purged, and whether it follows you across other sites.
+4. **reputation.** breaches with dates and scope and whether they were disclosed properly, regulatory fines and settlements, complaint patterns like "impossible to cancel," and documented dark patterns.
+5. **ownership.** who really owns it, mapped from subsidiary to parent so a small app inherits its parent's record. known data broker ties, and funding that might bend its data policy.
+
+## KEEPING IT HONEST
+
+a report like this is only worth anything if it never passes off a guess as a fact.
+
+1. every claim links to the exact clause, filing, or verified report it came from.
+2. every claim carries a confidence level, high, medium, or low, based on how fresh and reliable the source is.
+3. verifiable facts ("tos updated on this date") are kept visibly separate from user sentiment ("people say support is bad").
+4. any automated claim of something severe, like undisclosed data selling, is held for a human to review before it shows.
+5. a report older than six months is flagged stale until it's re-read.
+
+## THE CHALLENGE SYSTEM
+
+every entity page has a "challenge this report" form, open to anyone including the company itself. a correction needs proof, a new policy link and the specific clause. accepted corrections go into a public changelog on the page. a company that fixes something serious sits in a sandbox period where its score improves provisionally until the change is confirmed to have stuck. there's also an anonymous, encrypted drop for employees who want to report practices from the inside.
+
+## THE SCORECARD
+
+the headline is an a-to-f grade weighted hard toward user sovereignty. selling to data brokers, training on user data without permission, no way to delete your account, or a hidden breach is an automatic f. open source, zero telemetry, end-to-end encryption, explicit anti-scraping policy, and no dark patterns earns an automatic a. a company whose main business is farming user data for ai gets a visible machine feeder tag.
+
+it overlaps with [the watchtower](/ecosystem/protocols/watchtower/) by design. truthserum is the consumer-facing lookup for any product; the watchtower is the slower, evidenced grade for the entities that ingest human work in bulk.
+
+## STATUS
+
+design spec, nothing built.

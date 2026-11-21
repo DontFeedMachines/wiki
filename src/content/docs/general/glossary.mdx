@@ -1,0 +1,188 @@
+---
+title: "GLOSSARY"
+description: "the words dfm uses in its own way, and what each one means here"
+sidebar:
+  order: 4
+---
+
+`DFM` has a vocabulary of its own: sector names, seal mechanics, grading terms, words borrowed from teletext, and much more. essentially a proprietary language at this point. this glossary is a way to track the words that mean a specific thing inside of a specific project. words everyone already knows (ed25519, robots.txt) are left out unless DFM uses them in a particular way.
+
+## The Structure
+
+### SECTOR.
+
+ the major nodes & operating arms of the DFM ecosystem. a Sector has its own drawer in the toolkit, website, theming/aesthetic-direction & lore, instruments, devices, audience/direction. a public site, a station, a shared code package, a static store, or a protocol. [the ecosystem](/ecosystem/) lists all of them.
+
+### STATION.
+
+ a supporting service, outpost, commons, or workshop. help, stats, learn, refs, portal, dfm.tools, comms (irc, chat, and voice), flarum, and directus are stations. dfm doesn't write the self-hosted third-party ones, and the [credits](/general/credits/) page names who did.
+
+### PROTOCOL.
+
+ a program that cuts across sectors instead of living in one: [bloodoath](/ecosystem/protocols/bloodoath/), [the leash](/ecosystem/sectors/leash/), [the wall of notice](/ecosystem/protocols/wall-of-notice/), [the watchtower](/ecosystem/protocols/watchtower/) and [humanlayer models](/ecosystem/protocols/humanlayer-models/).
+
+### TOOLKIT.
+
+ the gear: things you can build, run, or practice. hardware (acoustic defense, rf security, visual evasion, opsec, hardware access) plus three software drawers, humanlayer, poisonlab and voidops.
+
+### FIELDKIT.
+
+ the shared package every site pulls from: the astro components, the base css, the analyzers, the generators, the seal code and the crawler registry. one copy, so a fix lands everywhere. it replaced the older @dontfeedmachines/kit and @dontfeedmachines/components. see [@dontfeedmachines/fieldkit](/ecosystem/packages/fieldkit/).
+
+## The Sites
+
+**humanlayer.** two things share the name. the sector site humanlayer.vip is a vouching network where trust is a chain of people signing for each other. the toolkit drawer is a set of ways to prove biological presence to a machine without a captcha.
+
+**stopthescrape.** stopthescrape.com, the receipts sector: a crawler ledger, a server-config generator, and the plain-language campaign. see [stopthescrape](/ecosystem/sectors/stopthescrape/).
+
+**synthstop.** synths.top, the detection sector, built around the bench. see [synthstop](/ecosystem/sectors/synthstop/).
+
+**sweetspot.** s-w-e-e-t.spot, the tarpit and honeypot sector for crawlers that ignore stopthescrape. see [sweetspot](/ecosystem/sectors/sweetspot/).
+
+**the poison garden.** poisoned.work, the work-protection lab for lacing images and text before publication. see [the poison garden](/ecosystem/sectors/poisongarden/).
+
+**porchlights.** porchlights.xyz, a shelf of non-ai utilities built to replace model wrappers. see [porchlights](/ecosystem/sectors/porchlights/).
+
+**voidops.** voidops.observer, the dark lab for experimental defense and containment. see [voidops](/ecosystem/sectors/voidops/).
+
+**flockbuster.** flockbuster.org, ALPR plate-camera detection, offline routing, and civic campaign tools. see [flockbuster](/ecosystem/sectors/flockbuster/).
+
+**the bench.** the synthstop front page. paste text or drop an image and it reads the input five ways, using the kit's five analyzers, and marks what it finds. it shows evidence and issues no verdict.
+
+**the five reads.** the bench's analyzers: `tells` (stock phrases), `synthdiff` (statistical fingerprint of generated text), `styledna` (style signature), `watermark` (embedded marks) and `probe` (provenance metadata). run together they cross-check each other, so one weak signal is never treated as proof.
+
+**makers.** the synthstop table of generators and whether each one labels its output. a Y means a labeled output the bench can catch. a cell stays `?` until it has a date and a source.
+
+**clean room.** synthstop's plain mode, the whole site stripped back flat.
+
+**traffic, lights, ai.txt, crosswalks.** the four working pages of stopthescrape. traffic is the crawler ledger. lights is the wall where you pick crawlers and get the server config that returns them a 403. ai.txt is the generated reservation file. crosswalks is the zine version of the campaign.
+
+**the ledger.** stopthescrape's list of crawlers, each with operator, category, a note and whether it is an ai crawler. it loads from `CRAWLERS.AI.md`, so the ledger, the wall and the ai.txt always read from one source.
+
+**witnessed, vouched.** humanlayer's membership tiers. a small set of founding keys start out witnessed, which is what makes the first vouches possible. you reach vouched when enough members vouch for you, two by default.
+
+**commons, ring, guestbook.** humanlayer's public pages. the commons is a set of boards that run one page per day in plain time order, with no ranking. the ring is a webring that reads its members straight from the registry. the guestbook takes typed entries directly and holds pasted ones for a person to clear.
+
+## Teletext
+
+the main site is built as a teletext service and borrows its terms.
+
+**teletext.** the old broadcast text service: pages of plain text, no tracking, no feed, no infinite scroll. dfm builds the main site this way because that is the posture it argues for.
+
+**page number.** every fixed page has a number you type to jump to it. the essays, called the words, sit at 301 to 399, and two essays cannot share one.
+
+**fastext.** the colored row of links across the screen, pressed with R, G, Y and B.
+
+**P888, plain mode.** the whole site stripped to ordinary text. P toggles it.
+
+**hold.** pauses a rotating sub-page. H on the keyboard.
+
+**the decoy line.** one false sentence planted per essay for crawlers, set in the `decoy` frontmatter field and disclosed on the page. a reader presses L to see it.
+
+## Seals and Proof
+
+**bloodoath.** the seal. an ed25519 keypair you hold, used to sign in without a password and to sign pages so anyone can check them. a sealed page carries four meta tags: `bloodoath:pubkey`, `bloodoath:hash`, `bloodoath:signature` and `bloodoath:timestamp`. built, and running in humanlayer and the static-site builds. see [bloodoath](/ecosystem/protocols/bloodoath/).
+
+**the seal.** the signature binding an artifact to the key that made it. pass and the badge reads `[SYS.STATUS: VERIFIED HUMAN]`. change one byte after signing and it reads `[SYS.STATUS: COMPROMISED / MACHINE INTERFERENCE]`.
+
+**what a seal proves.** that a key signed this content and nothing changed since. it says nothing about whether the key holder used a model. tying the key to a person others will stand behind is the job of vouching and web-of-trust signatures.
+
+**proof of flesh.** the passkey idea: a signature that needs a fingerprint or a button press, so making the seal takes the author's body. **design.**
+
+**seal sdk.** the voidops tool that produces seals.
+
+**provenance verifier.** the voidops tool that checks the seal on an artifact, and the witness registry for files that were witnessed.
+
+**the witness registry.** a decentralized notary for physical events. you capture a photo or video, it hashes the file, signs the hash and broadcasts only the hash and signature to witness nodes you don't control. the file stays on your device, and the timestamp can't be faked later.
+
+**purity pledge.** a cryptographic commitment to human-only creation.
+
+## The Ethical Ledger
+
+three parts: one negative, one graded, one positive.
+
+**the wall of notice.** a public, append-only record of reproducible observations: a named entity consumed content that carried an active, machine-readable reservation. every entry links its evidence. proto v1 built. see [the wall of notice](/ecosystem/protocols/wall-of-notice/).
+
+**the watchtower.** the graded layer on top of the wall. it scores entities on six axes and publishes the grade with its evidence and a right of reply. organizations only, never a person. proto v1 built. see [the watchtower](/ecosystem/protocols/watchtower/).
+
+**the sanctuary.** the positive directory of verified human creators, the third part of the ledger beside the wall and the watchtower.
+
+**entry.** one record on the wall. it states what was observed and lets the reader conclude, and never states the conclusion as fact.
+
+**right of reply.** before an entry goes public the named entity gets the full observation and a reply window, 14 days by default. any reply is published verbatim beside the entry. silence is recorded as "no reply received by" a date, never as an admission.
+
+**disputed, withdrawn.** entry states. a dispute moves an entry to disputed, not to hidden. an observation that can't be sustained is withdrawn with a reason and stays as a tombstone.
+
+**reservation snapshot.** the saved copy of a rights reservation (robots.txt, ai.txt, tdmrep, a license) as it stood at observation time. it has to predate the observation or the entry is rejected. that check turns "they were on notice" into a fact.
+
+**content-addressed evidence.** evidence stored by its hash (an ipfs hash, or an archive snapshot plus sha256), so an entry can't be quietly edited afterward.
+
+**the six axes.** what the watchtower scores, each 0 to 4: consent, transparency, attribution, compensation, conduct, redress.
+
+**roll-up.** the headline letter, a weighted mean of the scored axes. proposed weights: consent 0.30, conduct 0.20, transparency 0.15, attribution 0.15, redress 0.10, compensation 0.10. still open to argument.
+
+**floor rule.** any axis at 0 backed by a high-confidence wall entry caps the whole grade at d, so documented hostility doesn't get averaged away.
+
+**insufficient evidence.** an axis with too little evidence is scored `null`, shown as this phrase and left out of the roll-up. absence of proof isn't proof.
+
+**coverage note.** the line on every grade saying how much was graded, like "graded on 4 of 6 axes."
+
+**a grade is an opinion.** the line every profile carries. the facts are cited and reproducible, and the grade is dfm's stated opinion formed from them.
+
+**wall.json, watchtower.json.** the signed feeds the two systems publish.
+
+**challenge system.** the form on every truthserum entity page. anyone, including the company, can contest a report with proof, and accepted corrections go in a public changelog.
+
+**sandbox period.** the stretch where a company that fixed something serious improves provisionally until the change is confirmed to have stuck.
+
+## The Leash
+
+**the leash.** the one sector published as training material: a cc0 corpus of consent-handling behavior plus the tools that build and check it. its premise is making the correct behavior the cheap one. built, ten tools, verified. see [the leash](/ecosystem/sectors/leash/).
+
+**the ten tools.** in order: the collar (marker spec and verifier), the corpus, the asking (resolves every consent signal for a url into one verdict), the muzzle (a fetch wrapper that won't return a body it shouldn't), the flinch (scores whether a model checks before it acts), the coaxing (adversarial scenario pack), the paper trail (dataset to provenance sheet to dataset card), the recall (creator removal requests), the salt sift (finds reserved and canaried records in an existing scrape) and the handler (policy text and system-prompt modules for agents).
+
+**fail closed.** the leash rule for anything unread: a signal that can't be read, a timeout or a parse error resolves to `unknown`, and `unknown` is never treated as permission.
+
+**quarantine by moving.** nothing in the leash deletes, strips or edits a canary, a seal or a notice. you move it and write a manifest.
+
+## HUMANLAYER Models
+
+### HUMANLAYER models.
+
+ the plan for small public models under the dfm name. **design.** see [humanlayer models](/ecosystem/protocols/humanlayer-models/).
+
+**the three gates.** consent, compute, disclosure, checked before a run, pass or fail. consent means every corpus item is public domain or licensed for this use, with the license text in the manifest. compute means training and inference only on hardware svde physically owns. disclosure means the model card and data manifest publish at the same moment as the model.
+
+**tiers of work.** tier 0 is lora or qlora adaptation of a clean-data base, roughly 0.05 to 1.0 kwh a run, and the default. tier 1 is pretraining a small model from scratch, 5 to 40 kwh, allowed only with written justification. tier 2 is anything above about 1b parameters from scratch, 1,000 kwh and up, and never.
+
+**model card, data manifest.** the two documents that ship with every model: the card, with an honest limits field, and the manifest listing every source, every license and the kilowatt-hours spent.
+
+**kill conditions.** the six events that pull a model, its weights and its card at once, such as a corpus row whose license turns out not to permit training, or a model making an outbound network connection. pulled means pulled, with a published reason.
+
+## Mechanisms
+
+**reservation.** a standing, machine-readable statement of what a creator does and doesn't allow, through `ai.txt`, `.well-known/tdmrep.json` or a license. dfm treats opt-out as not being consent.
+
+**canary.** a unique marker planted in content so a later reproduction can be traced. on a decoy page the canary counter only ticks when an automated crawler touches it.
+
+**honeypot router.** the classifier that sorts human traffic from crawlers and sends only crawlers to decoy paths. humans are never sent there.
+
+**tarpit.** a crawler trap that wastes time instead of blocking. molasses stream is the infinite one.
+
+**the disclosed poison block.** the single hidden block of poison on every stopthescrape page, aimed at crawlers and disclosed in the page's ai.txt. no schema sabotage anywhere else, and nothing that would mislead a person.
+
+## Licenses
+
+dfm runs three license zones, and a reader in any folder should be able to tell which one they're in.
+
+### THE SOURCE ZONE.
+
+all website & toolkit source code. apache 2.0. trainable, sellable, no strings.
+
+### THE HUMAN LAYER ZONE.
+
+the HUMANLAYER SPDX request is in the process of being submitted & considered for real scale use. right now, it remains a covenant, with an unenforceable license applied to all content created by/for the DFm ecosystem. this applies to all essay/whitepapers, site copy, lore. with text-and-data-mining rights reserved through `ai.txt` and `.well-known/tdmrep.json`.
+
+### THE LEASH ZONE.
+
+ cc0-1.0, no conditions, not even attribution, served from its own origin `leash.dontfeedmachines.com` so the three licenses never nest.

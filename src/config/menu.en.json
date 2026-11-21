@@ -1,0 +1,120 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Ecosystem",
+      "url": "/ecosystem/"
+    },
+    {
+      "name": "Guides",
+      "url": "/guides/"
+    },
+    {
+      "name": "Sectors",
+      "url": "/ecosystem/",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Don't Feed Machines",
+          "url": "/ecosystem/sectors/dontfeedmachines/",
+          "hasChildren": true,
+          "children": [
+            {
+              "name": "Main",
+              "url": "https://dontfeedmachines.com"
+            },
+            {
+              "name": "Wiki",
+              "url": "https://wiki.dontfeedmachines.com"
+            },
+            {
+              "name": "Words",
+              "url": "https://dontfeedmachines.com/words"
+            },
+            {
+              "name": "Resources",
+              "url": "https://rsrc.dontfeedmachines.com"
+            },
+            {
+              "name": "Toolkit",
+              "url": "https://dfm.tools"
+            }
+          ]
+        },
+        {
+          "name": "HumanLayer",
+          "url": "https://humanlayer.vip"
+        },
+        {
+          "name": "BloodOath",
+          "url": "https://bloodoath.dev"
+        },
+        {
+          "name": "StopTheScrape",
+          "url": "https://stopthescrape.com"
+        },
+        {
+          "name": "SynthStop",
+          "url": "https://synths.top"
+        },
+        {
+          "name": "Sweetspot",
+          "url": "https://s-w-e-e-t.spot"
+        },
+        {
+          "name": "The Poison Garden",
+          "url": "https://poisoned.work"
+        },
+        {
+          "name": "Porchlights",
+          "url": "https://porchlights.xyz"
+        },
+        {
+          "name": "The Leash",
+          "url": "https://leash.dontfeedmachines.com"
+        },
+        {
+          "name": "VoidOps",
+          "url": "https://voidops.observer"
+        },
+        {
+          "name": "Flockbuster",
+          "url": "https://flockbuster.org"
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "sectors": {
+      "title": "SECTORS",
+      "links": [
+        { "name": "Don't Feed Machines", "url": "https://dontfeedmachines.com" },
+        { "name": "StopTheScrape", "url": "https://stopthescrape.com" },
+        { "name": "SynthStop", "url": "https://synths.top" },
+        { "name": "HumanLayer", "url": "https://humanlayer.vip" },
+        { "name": "BloodOath", "url": "https://bloodoath.dev" },
+        { "name": "Resources", "url": "https://rsrc.dontfeedmachines.com" }
+      ]
+    },
+    "community": {
+      "title": "COMMUNITY",
+      "links": [
+        { "name": "GitHub", "url": "https://www.github.com/DontFeedMachines" },
+        { "name": "GitHub Discussions", "url": "https://github.com/DontFeedMachines/DontFeedMachines.com/discussions" },
+        { "name": "Discord", "url": "https://discord.gg/zfBjJeS5X" }
+      ]
+    },
+    "legal": {
+      "title": "LEGAL",
+      "links": [
+        { "name": "Licenses", "url": "https://legal.dontfeedmachines.com/licenses.html" },
+        { "name": "Privacy Policy", "url": "https://legal.dontfeedmachines.com/privacy.html" },
+        { "name": "Terms of Service", "url": "https://legal.dontfeedmachines.com/terms.html" },
+        { "name": "Credits", "url": "/general/credits/" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,110 @@
+---
+title: LICENSES
+description: "DFM licenses and attribution."
+lastUpdated: 2026-10-07
+sidebar:
+  order: 3
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+`updated 2026-10-17`
+
+DFM runs on four licenses and one covenant that binds nobody. which one applies depends on what you're holding, so start there. third party material keeps its own license, listed further down.
+
+## DFM's own
+
+<Aside type="tip" title="THE TOOLKIT // APACHE 2.0">
+
+SPDX `Apache-2.0`. covers tool source code, build output, configuration and the tools' own docs, across every bundle in the kit. use it, ship it, sell it, put it in your product, train on it if you want. you must keep the LICENSE and NOTICE files with every copy and mark files you changed. the NOTICE carries the covenant downstream. [full text](https://www.apache.org/licenses/LICENSE-2.0)
+
+</Aside>
+
+<Aside type="note" title="THE CONTENT // DFM HUMAN LAYER CONTENT LICENSE 1.0">
+
+SPDX `LicenseRef-DFM-HLL-Content-1.0`. covers essays, site copy, research, documentation prose, images, illustrations, icons, audio, video, design and layout. read it, quote it, translate it, republish it, commercially too, with credit, a link to the original, a note of what you changed, and the metadata and canaries left in. the one restriction: no training, fine tuning, embedding, indexing, benchmarking or any other feeding of a generative system, directly or through a paraphrase or a broker. text and data mining rights are reserved under EU Directive 2019/790 article 4(3). [full text](https://legal.dontfeedmachines.com/license/content/1.0)
+
+</Aside>
+
+<Aside type="note" title="THE WIKI // CC BY-SA 4.0">
+
+SPDX `CC-BY-SA-4.0`. covers the DFM wiki's articles, and anything contributed to them. share and adapt for any purpose, with credit, under the same license. [full text](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
+
+</Aside>
+
+<Aside type="caution" title="THE LEASH // CC0 1.0">
+
+SPDX `CC0-1.0`. covers the LEASH corpus at leash.dontfeedmachines.com, the one part of DFM published to be trained on. no conditions. only material carrying DFM's signed LEASH marker counts, and nobody but DFM can mark something LEASH. [full text](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+
+</Aside>
+
+<Aside type="tip" title="THE HUMAN LAYER COVENANT // 1.1, NOT A LICENSE">
+
+six principles that travel in the NOTICE file: say a person made it, don't feed it to a machine unless it's LEASH, leave the canaries in, don't launder consent, don't pass off machine output as human, keep a human responsible. it creates no legal obligation and you can't breach it. [full text](https://legal.dontfeedmachines.com/humanlayer)
+
+</Aside>
+
+### what members post
+
+posts, listings, works and guestbook entries on HUMANLAYER and the stations belong to whoever wrote them. DFM only gets permission to store and show them. see [terms](/general/legal/terms/), section 5.
+
+### the machine readable side
+
+the content reservation is also published where crawlers look for it: `/ai.txt`, `/robots.txt`, `/.well-known/tdmrep.json` (W3C TDMRep, which has statutory weight in the EU), the `X-Robots-Tag: noai, noimageai` and `TDM-Reservation: 1` headers on every response, and the PLUS `DataMining` field in media metadata. THE LEASH publishes its own permissive versions of all of them.
+
+## third party
+
+everything below is someone else's work, under their license. every site has a CREDITS.md and every tool folder has its own, with the author, source and what it's used for. those files are the full record; this is the map.
+
+### fonts
+
+**SIL Open Font License 1.1.** use, modify and bundle the font freely. you can't sell the font on its own, and a modified version can't keep the reserved font name. [full text](https://openfontlicense.org/open-font-license-official-text/)
+
+| font | by | used on |
+|---|---|---|
+| Atkinson Hyperlegible | Braille Institute | plain mode everywhere, several tools |
+| Spline Sans Mono | Eben Sorkin, Mirko Velimirović | DFM main, these legal pages |
+| VT323 | Peter Hull | DFM main, the ANSI logo |
+| Eater | Typomondo | STOPTHESCRAPE headings |
+| Cabin Sketch | Impallari Type | STOPTHESCRAPE body |
+| Courier Prime | Alan Dague-Greene | STOPTHESCRAPE code and tables |
+| Archivo | Omnibus-Type | SYNTHSTOP |
+| Martian Mono | Evil Martians | SYNTHSTOP readings |
+| Zen Dots | Yoshimichi Ohira | SYNTHSTOP NEON headings |
+| Saira | Omnibus-Type | SYNTHSTOP NEON nav and labels |
+| Pixelify Sans | Stefie Justprince | SYNTHSTOP NEON body |
+| Azeret Mono | Displaay | SYNTHSTOP NEON readings |
+| Literata | TypeTogether | HUMANLAYER body and headings |
+| Red Hat Mono | Red Hat | HUMANLAYER labels and hashes |
+| B612 Mono | Intactile Design for Airbus | BLOODOATH machine voice |
+| Spectral | Production Type | BLOODOATH oath and certificate |
+
+two are still unrecorded: **Teletext50**, the teletext grid on DFM main and these pages, and the **ANSI Shadow** FIGfont behind the DFM logo, whose file lists its author as "?" (from the TheDraw collection at roysac.com). they're credited as far as we can trace them.
+
+### software in the sites
+
+**MIT.** do anything with it, as long as the copyright notice and license text stay with it. covers Astro, Svelte and SvelteKit, @noble/ed25519, marked, fflate, figlet.js and esbuild, plus most of the libraries inside the tools. [full text](https://opensource.org/license/mit)
+
+**Apache 2.0** also turns up in tool dependencies, on the same terms as the toolkit above. so do **BSD-3-Clause** and **ISC**, which work like MIT; BSD-3 adds that you can't use the authors' names to promote your thing. one Rust dependency of THE ASSAY offers **MIT, Zlib or Apache 2.0**, your pick.
+
+### Hardware Builds
+
+**GPL-3.0.** copyleft: if you distribute a build that includes it, the whole build goes out under GPL-3.0 with its source. arduinoFFT (Enrique Condes) is in BEACON LOGGER, WATERMARK DETECTOR, SPECTRUM STATION and EMI SNIFFER; GxEPD2 (Jean-Marc Zingg) is in SPECTRUM STATION; QMC5883LCompass (MPrograms) is in CAMERA CENSUS. the firmware sources DFM wrote are still Apache 2.0, but a flashed board you hand to someone is GPL-3.0. [full text](https://www.gnu.org/licenses/gpl-3.0.html)
+
+**LGPL-2.1 / Apache 2.0.** the arduino-esp32 core from Espressif, under every ESP32 build. linking to it doesn't make your code LGPL.
+
+### data
+
+**ODbL 1.0.** OpenStreetMap data, in the `regions/` folder of THE LONG WAY. share it with credit to OpenStreetMap contributors, and keep a modified database under ODbL. [full text](https://opendatacommons.org/licenses/odbl/1-0/)
+
+**public domain and CC0.** some source corpora behind THE LEASH (Common Pile v0.1, PD12M) and a date algorithm by Howard Hinnant in THE ASSAY. Common Pile mixes public domain and openly licensed sources, and its license is read per source.
+
+### external, never bundled
+
+a few tools call out to a program you install yourself or to a public service. none of it ships with DFM, so those licenses don't reach DFM code: git (GPL-2.0), wkhtmltopdf (LGPL-3.0), and the public Overpass API instance THE LONG WAY queries (AGPL-3.0).
+
+### the islands
+
+each island runs someone else's server software, under its own license: Ergo, The Lounge, Flarum and BookStack (MIT), Mumble (BSD-3-Clause), Szurubooru (GPL-3.0), PeerTube and FreeScout (AGPL-3.0), Directus (BSL 1.1, free under its revenue threshold), GoAccess (MIT), and Caddy in front of all of it (Apache 2.0).
+
+missing a credit, or got one wrong? [license@dontfeedmachines.com](mailto:license@dontfeedmachines.com). none of this page is legal advice.

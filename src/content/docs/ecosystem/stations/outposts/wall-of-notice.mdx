@@ -1,0 +1,52 @@
+---
+title: "The Wall of Notice"
+description: "a public, append-only record of what was observed, with the receipts attached"
+sidebar:
+  badge:
+    text: Building
+    variant: caution
+---
+
+## OVERVIEW
+
+the **wall of notice** is a public ledger of reproducible observations: a named entity consumed dfm content (or opted-in third-party content) that carried an active, machine-readable reservation. every entry links to its evidence, and every named entity gets a published right of reply.
+
+it's a lab notebook made public. it is not a shame wall, not a verdict, and not an accusation. it's the fact tier underneath [the watchtower](/ecosystem/protocols/watchtower/): the wall records, the watchtower grades.
+
+## THE LOAD-BEARING DISTINCTION
+
+an entry states what was observed and lets the reader conclude. it never states the conclusion as fact.
+
+1. **allowed:** "canary `c9f2a1b4...`, minted on a reserved page on 2026-03-01, was reproduced verbatim in model y's output on 2026-09-10. prompt, output, and drift report attached."
+2. **forbidden:** "acme are thieves who broke the law."
+
+truth is a complete defense, and a fact you can reproduce on demand is the strongest kind of true. so the wall only publishes the first kind. any judgment lives in a clearly labeled opinion field, or in the watchtower, never in the factual claim.
+
+## WHERE THE EVIDENCE COMES FROM
+
+the wall builds nothing new to detect. it's a publishing layer over tools that already exist: canary hits, seal SDK markers found in the wild, drift reports, the witness registry, and crawler classification from the sieve and the dragnet.
+
+nothing auto-publishes. a tool produces a candidate, and a person confirms the reproduction, attaches immutable evidence, sets a confidence level, and only then moves it forward. three intake rules hold every entry up:
+
+1. no entry is auto-published.
+2. evidence is content-addressed, an ipfs hash or an archive snapshot plus sha256, so an entry can't be quietly edited after the fact.
+3. the reservation snapshot has to predate the observation. if the reservation wasn't live at the time, the entry is rejected. this is the single check that turns "they were on notice" from a claim into a fact.
+
+## GOVERNANCE
+
+1. **right of reply, always.** before anything goes public the entity gets the full observation and a reply window, 14 days by default. any reply is published verbatim beside the entry. a dispute moves it to `disputed`, not to hidden. silence is recorded as "no reply received by" a date, never as an admission.
+2. **correction and removal.** a sustained error is corrected visibly and logged. an observation that can't be sustained is `withdrawn` with a reason and stays as a tombstone, so the record of the record is honest. removal on legal demand is logged the way a transparency report logs takedowns.
+3. **immutability with honesty.** entries are ed25519-signed by dfm. corrections are append-only; nothing is edited in place.
+4. **method transparency.** a public method page explains how canaries are minted, how reproductions are confirmed, the known false-positive modes, and what each confidence level means. every entry cites it.
+
+## THE GUARDRAILS
+
+entities only, never a named person. every factual claim reproducible. no "violation" as a bare headline verb, because whether ingestion infringes is legally unsettled and not dfm's to rule on. a lawyer reviews the whole thing once before the first named entry goes live.
+
+## WHAT IT ISN'T
+
+not a blocklist, since blocking lives in the defense tools. not automated enforcement, it never files anything. not a court. it documents, publishes replies, and lets the public record do the work. the public side is a static site built from signed json, with no comments, no voting, and nothing that invites a pile-on.
+
+## STATUS
+
+proto v1 built: schema validation, ed25519 signing, static html rendering, signed `wall.json` feed, and a read-only slice of the governance views. tier 3 intake adapters, notice sending, reply intake, and live signing keys are not built yet.

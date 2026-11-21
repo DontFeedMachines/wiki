@@ -1,0 +1,22 @@
+---
+title: "Forum"
+description: "forum.humanlayer.vip, flarum for threads that outrun a day"
+---
+
+the forum island is Flarum on MariaDB, for discussion that runs longer than a single day. HUMANLAYER's `/commons` boards reset to one page a day on purpose, which is good for what's happening now and bad for a thread anyone wants to come back to next week. the forum is where those threads live.
+
+## WHAT IT'S FOR
+
+threaded, durable conversation across the sectors, sorted by latest so it stays in time order rather than by votes. its tags mirror the commons boards: hearth, process, help, market talk, witness requests. it is linked from the HUMANLAYER footer and from `/commons`.
+
+## HOW IT'S WIRED
+
+Flarum answers at `forum.humanlayer.vip`. this station is on HOLD while software choices are finalized against the alternatives.
+
+## WHY FLARUM
+
+the stack doc offered three. Lobsters fit on paper because its invite tree is close to VOUCH, but it is a link aggregator that ranks by votes and age, and the commons want plain time order. Tildes is invite-only and serious, but self-hosts through a Salt setup built for one production site. Flarum is a plain discussion forum: it sorts by latest when told to, its likes are an extension you can leave off, and it has a maintained docker image.
+
+## SETUP
+
+copy `.env.example` to `.env`, fill both passwords, `docker compose up -d`, then finish the installer in the browser. in admin, disable `flarum/likes`, set the default sort to latest, and create the five tags. single sign-on from a BLOODOATH key is still unwritten, same open item as the other web islands.

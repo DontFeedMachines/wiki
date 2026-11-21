@@ -1,0 +1,16 @@
+---
+title: "STATS"
+description: "stats.dontfeedmachines.com, crawler and page-view counts with no visitor tracking"
+---
+
+the stats station counts traffic across the sector sites: which crawlers came, how many got walled, and which ones read `robots.txt` and kept going. people are counted as plain page views and nothing more.
+
+## What It Keeps
+
+it keeps counts and nothing else. no IP address, no cookie, no visitor ID, and no user agent from anyone using a browser. the page lists what is stored at `/what-we-store`.
+
+## How It's Built
+
+Astro + Cloudflare Workers + D1 (`stats.dontfeedmachines.com`), pairing with [StopTheScrape](/ecosystem/sectors/stopthescrape/) so the crawler ledger and observed traffic stay aligned without third-party analytics or client-side pixels.
+
+

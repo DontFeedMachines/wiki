@@ -1,0 +1,27 @@
+---
+title: "Resources"
+description: "the content store the sites read: pure markdown, portable, offline-safe"
+sidebar:
+  label: Resources
+---
+
+`resources` is the content database behind the docs, the plain-markdown counterpart to this wiki's source. everything in it is pure markdown on purpose, so it stays portable, readable offline, and usable in any system that can open a text file, now or long after any particular site stack is gone.
+
+## What's in It
+
+- `assets/ `
+  - images,
+- `toolkit/`, the hardware, software and firmware project info: docs, BOMs, the source material the tool pages are built from.
+- `articles/`, the longer thinking: investigations, r&d, tech theory.
+- `guides/`, assembly instructions and walkthroughs.
+- `faq/`, general questions and answers.
+
+- dfm-legal is the static legal store, plain html with no build step and no framework. the licenses, the privacy statement, and the terms, written as flat pages that will open in any browser on any machine a decade from now. legal text is the one place you want the least moving parts, so this sector has none.
+
+## How It's Used
+
+the sector builds read this store and never write to it. the clearest example is HUMANLAYER's covenant: it reads `HUMANLAYER.md` from the legal folder here at build time. keeping the content in flat markdown outside the apps is what lets the same words feed the teletext main site, the wiki, and the [learn station](/ecosystem/stations/learn/)'s walkthroughs without being retyped for each.
+
+## License
+
+the content is CC BY-SA 4.0. open source, attribution required.

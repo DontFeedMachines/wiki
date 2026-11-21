@@ -1,0 +1,29 @@
+---
+title: "Comms"
+description: "comms.humanlayer.vip, the communications trifecta: IRC, web chat, and voice"
+sidebar:
+  label: Comms
+---
+
+## Overview
+
+`comms.humanlayer.vip` is the communications trifecta for the community: real-time IRC, browser web chat, and low-latency voice rooms under one roof.
+
+1. **IRC (`irc.humanlayer.vip:6697`):** an Ergo IRC network for plain, unranked, real-time text.
+2. **Chat (`chat.humanlayer.vip`):** The Lounge web client wired into the same Ergo network, so you can join from a browser without a desktop IRC client.
+3. **Voice (`voice.humanlayer.vip`):** a Mumble server (TCP/UDP port `64738`) for spoken rooms: hearth, critique, working session, and witness.
+
+## What It's For
+
+live conversation and voice rooms across the sectors, linked from HUMANLAYER's `/irc` and `/commons`. where the [forum](/ecosystem/stations/forum/) holds threads that run for days, comms is for the rooms talking right now.
+
+## How It's Wired
+
+Ergo and The Lounge run together on the same IRC network, while Mumble publishes its own protocol on port `64738` (TCP and UDP) and is reachable via `mumble://voice.humanlayer.vip/`. single sign-on from a BLOODOATH key into the web client is still open.
+
+## Setup
+
+each service carries a `compose.yaml` and `.env.example`:
+
+1. **IRC + Chat:** copy `.env.example` to `.env`, fill the secrets, and run `docker compose up -d`.
+2. **Voice:** copy `.env.example` to `.env`, set the superuser password, `docker compose up -d`, then connect as `SuperUser` in a Mumble client to create the `hearth`, `critique`, `working session`, and `witness` channels.

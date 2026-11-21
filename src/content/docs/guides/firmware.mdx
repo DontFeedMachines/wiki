@@ -1,0 +1,46 @@
+---
+title: "Firmware Guide"
+description: "what firmware does on a DFM board, why it is open, and how to trust the file you flash"
+sidebar:
+  order: 2
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+firmware is the code that lives on the board itself. a finished DFM build is a paperweight until it has some. this page covers what firmware is in this toolkit, which chips it runs on, and how you decide to trust a file before it touches your hardware. the exact flashing routine is in [Firmware Overview](/guides/toolkit/firmware/).
+
+## WHAT FIRMWARE DOES HERE
+
+the board does one job and the firmware is that job. it reads a sensor, drives a signal, watches a port, or answers a question over usb. it has no account, no update server and no telemetry. if a build needs the network, its entry says so in the first lines.
+
+## THE TWO CHIPS
+
+| chip | file you flash | how it gets on the board |
+|---|---|---|
+| esp32 | `.bin` | esptool over usb serial |
+| rp2040 | `.uf2` | hold boot, board mounts as a drive, drop the file on it |
+
+## TRUST THE FILE
+
+1. download from the project's own release page, never a mirror.
+2. compare the sha-256 to the one the release publishes with `shasum -a 256 firmware.bin`. the output has to match exactly.
+3. if it does not match, stop and download again.
+
+firmware you did not verify is code you chose to trust blind, running on a device you carry.
+
+<Aside type="caution" title="DATA CABLE">
+a charge-only usb cable will never show your board to the computer. test the cable with a data cable checker before troubleshooting the board.
+</Aside>
+
+## WHEN TO REFLASH
+
+1. after a new release fixes something you hit.
+2. after the board spent time out of your sight.
+3. before you rely on it for anything that matters.
+
+reflashing a board you own is cheap, and it wipes whatever a stranger might have left on it.
+
+<CardGrid>
+  <LinkCard title="Firmware Overview" description="the step by step routine for esp32 and rp2040." href="/guides/toolkit/firmware/" />
+  <LinkCard title="Build Guides" description="hardware assembly and walkthroughs." href="/guides/builds/" />
+</CardGrid>

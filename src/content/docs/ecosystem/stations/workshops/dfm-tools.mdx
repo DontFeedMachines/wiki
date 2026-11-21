@@ -1,0 +1,22 @@
+---
+title: "The Toolkit"
+description: "dfm.tools, the workshop index and host router for every standalone DFM tool"
+sidebar:
+  badge:
+    text: Building
+    variant: caution
+---
+
+## Overview
+
+`dfm.tools` is the public workshop for standalone DFM tools. the root domain serves the catalog index, while `<name>.dfm.tools` serves individual hosted tools directly.
+
+## How It's Built
+
+the root site is built with Astro from `catalog/` (one entry file per tool) and `web-r4/`. tools with their own standalone web builds live under `site/_hosted/<name>/`. a Cloudflare Worker (`src/index.js`) routes bare `dfm.tools` requests to `site/_root/` and `<name>.dfm.tools` requests to `site/_hosted/<name>/`.
+
+## Offline
+
+every hosted tool works offline by opening `site/_hosted/<name>/index.html` or serving the folder with any static file server.
+
+

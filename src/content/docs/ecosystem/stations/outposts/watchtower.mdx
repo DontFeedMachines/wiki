@@ -1,0 +1,52 @@
+---
+title: "The Watchtower"
+description: "a scored, evidenced, contestable grade for the companies that ingest human work in bulk"
+sidebar:
+  badge:
+    text: Building
+    variant: caution
+---
+
+the **WATCHTOWER** grades the entities that train on, host, broker, or ingest human work in bulk: model providers, scrapers, data brokers, dataset publishers, aggregators. organizations only, never a person.
+
+it sits on top of [the wall of notice](/ecosystem/protocols/wall-of-notice/). the wall records what happened. the watchtower turns those facts into a grade. the first sketch was a single a-to-f letter with no evidence behind it, graded on vibes. this version is scored on six axes, every line cited, every grade contestable.
+
+## THE SIX AXES
+
+one letter hides too much. a scraper with good consent tools and zero transparency shouldn't net out to a bland c. so each entity is scored 0 to 4 on six separate questions, and the axes are always shown next to the letter.
+
+1. **consent.** does it take data only with permission, and honor opt-outs and reservations like robots.txt, ai.txt, tdmrep, and licenses?
+2. **transparency.** does it disclose training sources and provenance honestly?
+3. **attribution.** does it credit and preserve where human work came from?
+4. **compensation.** does it pay, license, or share value with the people whose work it uses?
+5. **conduct.** when it's caught or asked, does it correct and stop, or evade and rotate?
+6. **redress.** is there a working way for a person to opt out, be removed, or dispute, and does it actually work?
+
+each score maps to an observable criterion, not a feeling. consent at 0 is documented ignoring of reservations; consent at 4 is opt-in only. an axis with too little evidence is scored `null`, shown as "insufficient evidence," and left out of the roll-up instead of counted as a failure, because absence of proof isn't proof.
+
+## WHERE SCORES COME FROM
+
+no score without a citation. sources, strongest first: wall entries, the entity's own published policies and model cards, regulatory filings and court findings (cited, not adopted), then dated third-party research. every citation is snapshot and hashed so a score survives the source page changing. a self-disclosure that later proves false becomes a conduct event of its own.
+
+## THE ROLL-UP
+
+the headline letter is a weighted mean of the scored axes. the proposed weights are consent 0.30, conduct 0.20, transparency 0.15, attribution 0.15, redress 0.10, compensation 0.10, published and still open to argument. the mean maps to a (3.5 and up), b (2.5), c (1.5), d (0.75), f below that.
+
+one floor rule overrides the math: any axis at 0 backed by a high-confidence wall entry caps the whole grade at d. documented hostility doesn't get averaged away by good pr somewhere else. every grade also carries a coverage note, like "graded on 4 of 6 axes," because a thin a and a fully evidenced a aren't the same thing.
+
+## A GRADE IS AN OPINION
+
+the facts are cited and reproducible. the grade is dfm's stated opinion formed from those facts, and every profile says so in plain words. the rubric and weights are public, so anyone applying the same rubric to the same evidence gets the same grade. an entity can dispute a fact, which routes to the wall's correction process, or the grade itself, which gets a published rebuttal on the profile. both replies show.
+
+## WHAT IT PUBLISHES
+
+1. a profile per entity: axis scores with evidence, the grade and its coverage note, replies, and a change log.
+2. a signed `watchtower.json` feed others can consume.
+3. an embeddable badge, like "graded f on consent."
+4. an opt-in blocklist export for sites that want to refuse f-on-consent entities. opt-in by the site, never automatic.
+
+grades move. a profile older than a set interval is marked stale. an entity that fixes its redress path can ask for a re-grade and visibly rise, because a ledger that can't say "they got better" is a punishment engine. where dfm is in a dispute with an entity it grades, that's disclosed, and the grade leans conservative and on third-party evidence.
+
+## STATUS
+
+proto v1 built: rubric engine, Wall feed verification, citation hashing, profile renderer, signed `watchtower.json` feed, badge SVGs, and opt-in `blocklist.json`. tier 4 dispute intake, the re-grade workflow, and the Sanctuary link are not built yet.

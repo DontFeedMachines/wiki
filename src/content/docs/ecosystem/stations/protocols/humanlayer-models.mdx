@@ -1,0 +1,61 @@
+---
+title: "HUMANLAYER Models"
+description: "small public models trained on consented open data, on owned hardware, with every source disclosed"
+sidebar:
+  order: 0
+---
+
+**HUMANLAYER Models** is the plan for training & running models under the `DFM` name: what data is allowed, what compute is allowed, what has to be published next to a model, and what the models are for. 
+
+as of 2026-11-19 the direction is set. the models will be explicitly for public release, self-trained on open datasets only, with strict guardrails & collars in place to ensure purely ethical treatment of end-users & the model's own behaviors
+
+nothing is built yet. this entry describes the rules the project has to survive before it's allowed to exist.
+
+## The Contradiction, Handled First
+
+the manifesto says the machine doesn't create, it consumes & regurgitates. `DFM` organizes against data center construction, against the unethical usage of unconsented data, against the proliferation of the AI model free for all that a lot of the internet has unfortunately become at this point. so a `DFM`-branded model felt like a plain contradiction. trust that a lot of careful consideration has gone into making this as human-first & reliable/secure/safe as possible. 
+
+*THE POSITION*: our objection was never to matrix multiplication, machine learning, algorithms, or generally taking grueling tasks away from the human in the loop so as to allow for a higher rate of creativity and productivity. the objection is, was, and always will be be to non-consensual extraction, to corporate opacity, to the physical cost being dumped on people who never agreed to it. a model that fails none of those tests isn't the thing we oppose at all. a model that fails even one is, and its entire core gets killed no matter how good, fast, or capable it is. if the gates are ever softened, the project gets shut down. never rebranded, never sold, never compromised. 
+
+## The Three Gates
+
+1. **CONSENT.** every item in a corpus is public domain (by age or by cc0 dedication) or released under a license that explicitly permits this use. the license text(s) are perpetually stored in the manifest. opt-out is not consent. "it was on the public web" is not a category. "i could download it" is ego, not permission. scraped data doesn't enter the project, not even as a comparison baseline, and if by some far-flung possibility it does enter the corpus at any given time, that logic tree is followed down to the root and the earth is salted & scorched.
+2. **COMPUTE.** all training & inference runs on hardware that we physically own. no rented GPUs, no cloud burst, no colocation. nothing in our model lineage was trained or tuned outside of our own walls. ths will never change, because we can't organize or stand against data centers while renting from one.
+3. **DISCLOSURE.** no model is released or used in published work without its model card and its data manifest published at the same moment. an undisclosed model counts as a failed model. there are numerous failsafes in place to ensure that provenance is followable, respected, and respectful of its origin.
+
+## Tiers of Work
+
+three tiers sorted by energy cost. these facets are still being figured out and may change at any given time. changes are always made public & very obvious.
+
+1. **tier 0:** LoRA or QLoRA adaptation of an existing clean-data base. roughly 0.05 to 1.0 kwh a run. the default.
+2. **tier 1:** pretraining a small model from scratch on public-domain and licensed data. 5 to 40 kwh per model, allowed only with a written justification in the card.
+3. **tier 2:** pretraining anything above about 1b parameters from scratch, 1,000+ kwh.
+
+for scale: gpt-3's training run is published at 1,287 mwh, which is 1,287,000 kwh. a 0.2 kwh tier 0 run is smaller by a factor of about six million. the tiers are genuinely different physical events not suggestions or gesture.
+
+## What Gets Published with a Model
+
+every model ships with a card & a data manifest: every source, every license, the kilowatt-hours the run cost, when the manifest was last verified. the card's limits field will always be honest with what the model is good & bad at. these will be far less capable than hosted SOTA models at general knowledge, long reasoning, and anything outside their narrow job. the gain is traceability: any output can be traced to a documented corpus with a license for every row, which not a single hosted model can offer (or refuses to).
+
+## License
+
+many were considered; primarily cc0. as much as we would like to make things as simple as possible, releasing a `DFM` model & datasets into the public domain would hand it straight to the entities [the watchtower](/ecosystem/stations/watchtower/) grades with an F. the standing candidates are [OpenRAIL-M](https://huggingface.co/blog/open_rail) for its behavioral-use clauses, the [Montreal License](https://arxiv.org/abs/1903.12262) for its AI-rights taxonomy, and a `DFM` addendum on top of either that inherits the integrity clauses of the HUMANLAYER Covenant & bans using the weights or outputs to train any model that fails the consent gate. that last clause makes the license recursive. decision: TBD.
+
+## Kill Conditions
+
+any one of these pulls the model, the weights, and the card at once:
+
+1. a corpus row's license turns out not to permit training.
+2. a contributor withdraws consent.
+3. an energy cap is exceeded and the run keeps going anyway.
+4. the model makes an outbound network connection.
+5. a card ships with a blank or cosmetic limits field.
+6. weights get released without the manifest.
+
+pulled means pulled, not quietly patched. the pull notice is published with the reason, because a project grading other people's transparency doesn't get to handle its own failures in private.
+
+## Status
+
+design, nothing built. the dataset list and per-model plan are being rewritten for the public-release direction, so the specific models aren't listed here yet.
+
+

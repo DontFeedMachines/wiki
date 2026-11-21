@@ -1,0 +1,102 @@
+---
+title: PRIVACY POLICY
+description: "DFM privacy policy."
+lastUpdated: 2026-10-07
+sidebar:
+  order: 2
+---
+
+updated 2026-10-07
+
+**WE DO NOT TRACK YOU. WE DO NOT SELL YOU.**
+
+this page covers every DFM property: dontfeedmachines.com and its subdomains, stopthescrape.com, synths.top, humanlayer.vip and the islands hung off it. they're all run by svde, operating as DON'T FEED MACHINES. one person. there's no data team and no ad partner, so the list of who sees your data is short, and it's below.
+
+## The Short Version
+
+no analytics scripts. no tracking pixels. no ads, no third party embeds, no fonts pulled from a font CDN. the static sites set no cookies at all. the server keeps a plain access log for 24 hours so we can see who's scraping, and then it's gone. if you join HUMANLAYER you get one login cookie and we store what you choose to post, most of which is public by design.
+
+## What the Server Sees on Every Request
+
+any web server sees this whether it wants to or not: your IP address, the time, the page you asked for, your browser's user agent string and the referring page. ours writes those to an access log. raw log lines are kept for 24 hours and then deleted.
+
+the stats at stats.dontfeedmachines.com are counted from that same log by GoAccess, on our own server. it keeps totals (requests per day, per page, per crawler) and never asks your browser for anything, because there's no script or pixel on any page for it to read.
+
+the user agent string also gets checked against a list of known AI crawlers. if it matches, the request gets a 403 and nothing else. that's the only thing your user agent is used for.
+
+outgoing links send other sites our origin only (dontfeedmachines.com), never the full address of the page you were on.
+
+## What Stays in Your Browser
+
+a few settings are saved in your own browser's storage so they survive a reload. they're never sent to us.
+
+| key | where | what it remembers |
+|---|---|---|
+| `dfm:plain` | localStorage | plain mode (subtitles) on or off |
+| `dfm:scan` | localStorage | the scanline effect on or off |
+| `dfm:hold` | localStorage | whether HOLD is on |
+| `dfm:countup` | localStorage | whether page numbers count up when you change pages |
+| `synth:uv` | localStorage | SYNTHSTOP's UV mode on or off |
+| `starlight-theme` | localStorage | light or dark on the wiki |
+| `sts:agents` | sessionStorage | crawlers you picked in a STOPTHESCRAPE generator, gone when the tab closes |
+
+clear your site data and every one of these goes with it.
+
+## The Tools
+
+the toolkit tools that run on these sites run in your browser. text or images you drop into an analyzer stay on your machine and aren't uploaded. a tool that does make a network request says so on its own page.
+
+## Humanlayer
+
+HUMANLAYER is the one place where we store things about you, and only because you joined.
+
+### your key
+
+membership is a keypair made in your browser. the private key never leaves it. while the tab is open it sits in sessionStorage, and closing the tab forgets it. the key file you download is encrypted with your passphrase. we never see the passphrase or the key, so if you lose both, we can't get you back in.
+
+### the login cookie
+
+signing in sets one cookie, `hl_session`. it holds a random token, it can't be read by page scripts, and it expires after 14 days or when you log out.
+
+### what's stored, and what's public
+
+| stored | public? |
+|---|---|
+| your public key, handle, tier and signed oath | yes, that's what membership is |
+| vouches you give or get, with their notes | yes |
+| your site link, if you list one | only if you choose to be listed |
+| commons posts and witness statements | yes |
+| market listings | yes, while live |
+| works: hashes and signatures of each draft, plus the text if you choose to attach it | yes |
+| guestbook entries: the name you type and the message | yes, once live. pasted entries wait for a person to approve them |
+| reports you file, and your key if you were signed in | no, moderators only |
+
+### typing cadence
+
+posts and guestbook entries carry a cadence stamp. it's four numbers: how many keys you pressed, how many times you pasted, the median gap between keys in milliseconds, and how much that gap varied. which keys you pressed, and anything you typed and deleted, are never recorded. the stamp is shown next to the post, because showing it is the point.
+
+### jobs
+
+job and service listings submitted through /jobs are stored in a Directus database on the same server, read by the people who run the jobs board.
+
+## The Islands
+
+irc, voice, the forum, the reference library, help and learn are self-hosted on our own server, and not all of them are running yet. each keeps what you post to it (messages, threads, uploads, help emails) under the same rules as this page. the voice server doesn't record anything. irc keeps whatever history the channel is set to keep, which the channel says when you join.
+
+## Who Else Sees It
+
+legal.dontfeedmachines.com and rsrc.dontfeedmachines.com are static sites deployed to a static host, which keeps its own request logs under its own policy. everything else runs on a server we control. we don't sell data, share it with advertisers, hand it to data brokers, or train anything on it. we'd hand it to someone else only if a court ordered it, and we'd tell you if the order let us.
+
+## Your Rights
+
+wherever you live, you can ask what we hold about you, ask us to correct it, or ask us to delete it. for HUMANLAYER, deletion takes your member record, posts, listings, works and guestbook entries off the server. vouches you signed for other people are removed with you. there's nothing to export from the static sites, because there's nothing kept.
+
+email [license@dontfeedmachines.com](mailto:license@dontfeedmachines.com). a person answers.
+
+## Kids
+
+none of this is aimed at children. if you're under 13, don't join HUMANLAYER or post on the islands.
+
+## Changes
+
+when this page changes, the date at the top changes and the change is listed in the [legal center](/general/legal/).

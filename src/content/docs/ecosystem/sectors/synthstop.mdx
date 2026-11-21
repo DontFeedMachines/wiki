@@ -1,0 +1,25 @@
+---
+title: "SYNTHSTOP"
+description: "synths.top, the bench that reads a thing five ways to spot the synthetic"
+sidebar:
+  order: 4
+---
+
+[synths.top](https://synths.top) is the detection sector. its center is the bench: paste a paragraph or drop an image, and it reads the thing five different ways, marking every stock phrase, every tell, every signature of machine-made text or a generated picture. it does not pretend to a verdict it can't support. it shows you what it found and lets you judge.
+
+the point is literacy, not a magic detector. the more ways you have seen the synthetic & how it expresses itself, the harder it is to slip one past you.
+
+## Structure & Focus
+
+1. **the BENCH**, the front page. text or image in, five reads out, stock phrases flagged in place.
+2. **FIELD GUIDE** and **SPOT THE SYNTH**, the teaching pages: what the tells actually are and how to see them yourself without the tool.
+3. **MAKERS**, the generator side of the ledger. does a given model label what it outputs? a Y means a labeled output the bench can catch, and every cell stays a `?` until it has a date and a source behind it.
+4. **BLOCKERS**, **COMPARE**, and the **tools** and **lists** pages for the rest of the kit.
+
+## Anatomy
+
+astro for the static shell, svelte islands for the interactive bench, so the heavy analysis runs in the browser with nothing sent anywhere. there is a plain mode called `CLEAN ROOM`, the whole site stripped back for anyone who wants it flat. same privacy posture as the rest: no third-party origins, no trackers.
+
+## How the Bench Works
+
+the five reads come from the analyzers in [@dontfeedmachines/fieldkit](/ecosystem/packages/fieldkit/), each looking for something different: the stock-phrase tells, the statistical fingerprint of generated text, the style signature, embedded watermarks, and the provenance metadata a maker may or may not have left behind. run together they cross-check each other, so a single weak signal doesn't get treated as proof. the makers table is the other half: it tracks which generators label their output at all, because a labeled output is one these reads can actually flag.

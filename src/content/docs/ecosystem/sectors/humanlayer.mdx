@@ -1,0 +1,38 @@
+---
+title: "HUMANLAYER"
+description: "humanlayer.vip, proving you're a person by who vouches, not by a captcha"
+sidebar:
+  order: 2
+---
+
+[humanlayer.vip](https://humanlayer.vip) asks a different question than a captcha does. instead of making you prove you're human to a machine, it asks whether people who are already here will vouch for you. trust comes from a chain of other humans, each one signing for the next, and that chain is the whole structure. it is the only sector with a real backend, because it has to remember who vouched for whom.
+
+no engagement metrics, no feed, no algorithm deciding who you see. a person vouches, another witnesses, and you are in.
+
+## Anatomy
+
+`sveltekit` on node, with SQLite underneath, the only sector that stores anything. keys are `Ed25519` through `@noble/ed25519` in both the browser and the server, one code path, no webcrypto fallback. it is configured by environment: `HL_DB` for the database file, `HL_FOUNDING_PUBKEYS` for the keys that start WITNESSED, `HL_VOUCHES_NEEDED` for the threshold, `HL_MOD_PUBKEYS` for who sees `/mod`, and `HL_SEAL_KEY` for the page seals.
+
+## Bloodoath
+
+identity here is a key, not an email, username, or passw. BLOODOATH is an `Ed25519` keypair you hold, and it does two jobs: it is how you sign in, by answering a challenge with your key instead of a password, and it is how pages get sealed. a sealed page carries a signature anyone can check at `/verify`, so a reader can confirm a thing really came from the holder of that key and wasn't altered. the same seal runs across the static sites too, through the shared kit.
+
+## The Tiers
+
+membership climbs by vouches.
+
+1. a small set of **founding keys** start out WITNESSED, which is what makes the first vouches possible at all. somebody has to be trusted first.
+2. you reach **VOUCHED** when enough existing members vouch for you, two by default.
+3. **/roll** is the roster, **/me** shows your own standing and who has vouched for you, and **/witness** is where a vouch gets recorded. the api behind it handles the challenge, the vouch, the witness, and revocation when trust is withdrawn.
+
+## The Commons, the Ring, the Guestbook
+
+1. **/hearth** is a set of boards that run one page per day, in plain time order, no ranking. threads that need to run longer move to the [forum station](/ecosystem/stations/forum/).
+2. **/ring** is a webring that reads its member sites straight from the registry, so there is no second list to keep in sync. the little `/w` route walks it.
+3. **/guestbook** takes typed entries straight up and holds pasted ones for a person to clear, which keeps it human without a spam filter.
+
+## Jobs and Market (Under Construction)
+
+**/jobs** is the public front end over the [jobs station](/ecosystem/stations/jobs/), reading and writing listings held in Directus. **/market** is vouch-gated trade between members. both lean on the same trust tiers, so standing in the network is what opens the doors.
+
+

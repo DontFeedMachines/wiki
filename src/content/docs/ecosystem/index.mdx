@@ -1,0 +1,68 @@
+---
+title: "ECOSYSTEM"
+description: "the sites, services and shared code that make up don't feed machines"
+sidebar:
+  order: 0
+  label: Ecosystem README
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+*DON'T FEED MACHINES* is not one website. it is a constellation: public sector sites, outposts and commons stations, shared code packages, and static resource stores. this section documents every piece, what it does, how it is built, and how it wires into the rest.
+
+## Sector Sites
+
+the public-facing sites, each its own domain, each its own job.
+
+<CardGrid>
+  <LinkCard title="Don't Feed Machines" description="dontfeedmachines.com, the hub, built as a teletext service." href="/ecosystem/sectors/dontfeedmachines/" />
+  <LinkCard title="HumanLayer" description="humanlayer.vip, proving you're a person by who vouches, not by a captcha." href="/ecosystem/sectors/humanlayer/" />
+  <LinkCard title="StopTheScrape" description="stopthescrape.com, the crawler ledger and platform-settings crosswalks." href="/ecosystem/sectors/stopthescrape/" />
+  <LinkCard title="SynthStop" description="synths.top, the detector bench and maker directory." href="/ecosystem/sectors/synthstop/" />
+  <LinkCard title="Sweetspot" description="s-w-e-e-t.spot, trap the bots that don't listen to stopthescrape." href="/ecosystem/sectors/sweetspot/" />
+  <LinkCard title="The Poison Garden" description="poisoned.work, corrupt the work you send out into the world." href="/ecosystem/sectors/poisongarden/" />
+  <LinkCard title="Porchlights" description="porchlights.xyz, things people need to live and work, built without ai." href="/ecosystem/sectors/porchlights/" />
+  <LinkCard title="The Leash" description="leash.dontfeedmachines.com, the cc0 consent corpus published to be trained on." href="/ecosystem/sectors/leash/" />
+  <LinkCard title="VoidOps" description="voidops.observer, the lab for experimental defense and containment." href="/ecosystem/sectors/voidops/" />
+  <LinkCard title="Flockbuster" description="flockbuster.org, find plate cameras, route around them, get the contract cancelled." href="/ecosystem/sectors/flockbuster/" />
+</CardGrid>
+
+## Stations (Outposts, Commons & Workshops)
+
+supporting services, knowledge bases, and hosted tool workshops.
+
+<CardGrid>
+  <LinkCard title="Help" description="help.dontfeedmachines.com, shared ticketed inbox on Cloudflare Workers and D1." href="/ecosystem/stations/help/" />
+  <LinkCard title="Stats" description="stats.dontfeedmachines.com, crawler and page-view counts with no visitor tracking." href="/ecosystem/stations/stats/" />
+  <LinkCard title="Learn" description="learn.dontfeedmachines.com, member-written walkthroughs." href="/ecosystem/stations/learn/" />
+  <LinkCard title="Refs" description="refs.humanlayer.vip, curated contact-sheet reference library." href="/ecosystem/stations/refs/" />
+  <LinkCard title="DFM Tools" description="dfm.tools, catalog and host router for standalone tools." href="/ecosystem/stations/dfm-tools/" />
+  <LinkCard title="Portal" description="portal.dontfeedmachines.com, holding landing page for parked sector domains." href="/ecosystem/stations/portal/" />
+  <LinkCard title="Comms" description="comms.humanlayer.vip, the communications trifecta: IRC, web chat, and voice." href="/ecosystem/stations/comms/" />
+  <LinkCard title="Forum" description="forum.humanlayer.vip, Flarum for threads that run longer than a day." href="/ecosystem/stations/forum/" />
+  <LinkCard title="Jobs" description="jobs.humanlayer.vip, Directus back office behind HumanLayer's /jobs." href="/ecosystem/stations/jobs/" />
+</CardGrid>
+
+## Protocols
+
+the programs that run through every sector: provenance, accountability, consent, models.
+
+<CardGrid>
+  <LinkCard title="BloodOath" description="the seal that proves a person made a page, and breaks if a byte changes." href="/ecosystem/protocols/bloodoath/" />
+  <LinkCard title="The Leash" description="the cc0 consent corpus and tools that make compliance cheaper than ignoring it." href="/ecosystem/sectors/leash/" />
+  <LinkCard title="The Wall of Notice" description="an append-only record of what was observed, receipts attached." href="/ecosystem/protocols/wall-of-notice/" />
+  <LinkCard title="The Watchtower" description="a scored, evidenced, contestable grade for bulk ingesters." href="/ecosystem/protocols/watchtower/" />
+  <LinkCard title="HUMANLAYER Models" description="small public models on consented open data and owned hardware." href="/ecosystem/protocols/humanlayer-models/" />
+</CardGrid>
+
+## Shared Code and Stores
+
+the code every site pulls from, and the static stores underneath.
+
+<CardGrid>
+  <LinkCard title="@dontfeedmachines/fieldkit" description="the shared package: astro components, base css, analyzers, generators, seal code." href="/ecosystem/packages/fieldkit/" />
+</CardGrid>
+
+---
+
+the free software underlying the stations and shared libraries is listed on [credits](/general/credits/).

@@ -1,0 +1,29 @@
+---
+title: "Learn"
+description: "learn.dontfeedmachines.com, member written walkthroughs for the toolkit"
+---
+
+## OVERVIEW
+
+the makerspace is the written half of the teaching side: walkthroughs for the toolkit, written by members, with no recommendation feed wrapped around any of it. it lives at `learn.dontfeedmachines.com`. there are no accounts and no cookies, and nothing on a page counts who read it.
+
+## WHAT IT'S FOR
+
+guides are filed under one of four sectors: STOPTHESCRAPE, SYNTHSTOP, HUMANLAYER, HARDWARE. each guide carries the author's handle and a link to the wiki entry it builds on, so a walkthrough and the wiki entry it teaches stay joined. this makerspace is linked from every sector footer.
+
+## HOW A GUIDE GETS UP
+
+1. a member fills in the form at `/write`. there is no login. the browser solves a short proof of work, about a second or two, before the form is accepted, and the hourly cap on new guides is a count of rows, not a record of who sent them.
+2. the author lands on a private edit link. that link is the only way back to the draft.
+3. a person on staff reads the guide, then approves it, asks for changes, or rejects it. a reviewer cannot approve their own guide.
+4. an approved guide is rendered once and served from stored html. editing a published guide sends a new revision through the same review.
+
+images are refused on submit and video is out of scope. raw html is stripped, and every link is written with `noreferrer` and `noopener`.
+
+## WHAT IS STORED
+
+the author's handle, a contact email, the times of each step and the text of each revision. no ip address, no user agent, no referrer. the contact email is never shown or linked. a rejected guide is deleted 30 days after the review, and a published guide keeps its 10 newest older versions.
+
+## HOW IT'S BUILT
+
+an Astro site on Cloudflare Workers with static assets, using a D1 database for guides and revisions, and a second small Worker on a daily cron at 04:30 UTC that does the purge. approving, unpublishing and republishing clear the one affected url from the edge cache. mail goes out through the help station's shared sender. staff login is still a stub, so the review pages do not open on a live site until real login exists.

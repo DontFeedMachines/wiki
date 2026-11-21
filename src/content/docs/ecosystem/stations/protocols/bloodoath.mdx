@@ -1,0 +1,39 @@
+---
+title: "BloodOath"
+description: "the seal that proves a person made a page, and breaks if a byte changes"
+---
+
+## OVERVIEW
+
+**bloodoath** started as a badge, a look. the work is turning it into something you can check: a seal that binds an artifact, a page or a file, to the person who made it, so anyone can verify who signed it and that nothing changed since.
+
+it's already in use. [humanlayer](/ecosystem/sectors/humanlayer/) signs members in with a bloodoath key instead of a password, and the static sites seal every built page when a key is set. the signing code lives once, in [@dontfeedmachines/fieldkit](/ecosystem/packages/fieldkit/), and runs the same in the browser and on the server. the dedicated oath and key station lives at `bloodoath.dev`.
+
+## HOW THE SEAL WORKS
+
+the approach that shipped is ed25519, the nostr-style route, because it's fast, light, and has no clunky key tooling for the person signing.
+
+1. take the page content and compute its sha-256 hash.
+2. sign that hash with the author's ed25519 private key.
+3. write four meta tags into the page: `bloodoath:pubkey`, `bloodoath:hash`, `bloodoath:signature`, and `bloodoath:timestamp`.
+4. on load, the badge script hashes the page *as it is now*, and verifies the signature against the public key.
+
+pass and the badge reads `[SYS.STATUS: VERIFIED HUMAN]`. fail and it flashes `[SYS.STATUS: COMPROMISED / MACHINE INTERFERENCE]`. edit a single byte after signing and the seal fractures.
+
+## THE ROUTES THAT WERE WEIGHED
+
+the spec looked at five ways to do this before ed25519 won. the others are still on the table as layers.
+
+1. **pgp cleartext signatures.** the cypherpunk classic. hash the content, sign with gpg, embed the armored signature, verify in-browser against a keyserver. the most on-theme, the clunkiest to use.
+2. **ed25519 / nostr keys.** what shipped.
+3. **webauthn passkeys, "proof of flesh."** the signature comes from a hardware authenticator that needs a fingerprint or a button press, so producing the seal literally takes the author's body. the best narrative fit, harder to verify without a backend.
+4. **ipfs content addressing.** you can't verify a page that keeps changing, so package and pin it to ipfs and sign the content id. if the loaded code differs from the cid by one byte, the seal breaks.
+5. **web-of-trust signatures.** one signature proves *who* wrote something, not that the who is human. cross-sign keys between known people, like a key-signing party, and show how many hops an author sits from a verified human. this is the idea humanlayer's vouch tiers grew out of.
+
+## WHAT IT DOESN'T PROVE
+
+a seal proves a key signed this content and nothing changed since. it doesn't prove the key holder didn't use a model to write the thing. that gap is what the web-of-trust layer and humanlayer's vouching are for: they tie the key to a person other people will stand behind.
+
+## STATUS
+
+ed25519 signing and verification are built and running in humanlayer and the static-site builds, through `@noble/ed25519`. passkey, ipfs, and web-of-trust layers are ideas in the spec, not built.

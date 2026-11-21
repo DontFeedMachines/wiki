@@ -1,0 +1,59 @@
+---
+title: "the Toolkit Formats"
+description: "the eleven ways a tool can ship, what each one means, and how to read a tool's FORMATS file"
+sidebar:
+  order: 5
+  label: Toolkit Formats
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+a format is one way of packaging the same tool. every tool is run through the whole format tree, and each tool keeps a `FORMATS.md` that records which formats shipped. this page lists them and explains how to choose.
+
+## The Eleven Formats
+
+| # | format | what you get | runs without a network |
+|---|---|---|---|
+| 1 | single-file | one html file with everything inline, opens from `file://` | yes |
+| 2 | cli | a program you run in a terminal that does its job and exits | yes |
+| 3 | self-host | code or config you run on your own server to answer other people: middleware, proxy blocks, daemons, containers | on your own network |
+| 4 | desktop | a native app per platform, no web view wrapper | yes |
+| 5 | browser | an extension, side panel, DevTools panel or bookmarklet | yes |
+| 6 | drop-in | a snippet, web embed, plugin, theme or template that a site or app owner installs through the platform's own mechanism | depends on the platform |
+| 7 | dfm-host | the tool served at `<name>.dfm.tools`, optionally installable | after first load |
+| 8 | mobile | a native iOS or Android app, built only when the idea is born on a phone | yes |
+| 9 | library | code you import into your own project: npm, PyPI, crates, SwiftPM, Composer | yes |
+| 10 | gate | a pass or fail check at a workflow checkpoint: CI actions, git hooks, lint rules | yes |
+| 11 | hardware | a physical build with the firmware, board files, enclosure models, instructions, parts list and test procedure | not applicable |
+
+registries and installers (npm, Homebrew, winget, scoop, apt, PyPI, Docker, Flatpak) are channels inside a format, not formats.
+
+## Reading a Formats File
+
+each row has a mark.
+
+| mark | meaning |
+| --- | --- |
+| `[x]` | shipped and verified |
+| `[-]` | viable and deferred |
+| `[n]` | ruled out, with the reason written next to it |
+
+browser is marked ruled out for CANON because it needs direct access to a local folder, which a browser extension or a bookmarklet cannot give it. a tool that does not need a folder can ship in it.
+
+## Choosing One
+
+1. open a file and use it, nothing to install: single-file or dfm-host.
+2. run it in a terminal and it exits: cli.
+3. answer other people from your own server: self-host. see [Middleware Overview](/guides/toolkit/middleware/).
+4. a native app that reaches into the operating system: desktop, or mobile when the idea needs a phone.
+5. use it on pages in a browser: browser.
+6. install it into a site or app you already have: drop-in.
+7. import it into your own code: library.
+8. block a merge, commit or deploy: gate.
+9. build it with your hands from parts and instructions: hardware.
+
+<Aside type="note" title="VERSIONS">
+each format versions its own way: embedded strings for single-file, a permanent registry version for library, a display version plus a build integer for desktop, a cache key for an installable dfm-host copy.
+</Aside>
+
+

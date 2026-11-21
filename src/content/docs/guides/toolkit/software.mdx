@@ -1,0 +1,38 @@
+---
+title: "SOFTWARE OVERVIEW"
+description: "the software drawers, how a tool is run, and what its at-a-glance table promises"
+sidebar:
+  order: 3
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+this is the map of the software drawers, how a tool is run, and what its at-a-glance table promises.
+
+## Drawers
+
+analyzers inspect text and files for synthetic fingerprints. devtools keep a project's own files and releases honest, and CANON is one of them.
+
+## Running a Tool
+
+1. open the entry and read the at-a-glance table first. it lists what the tool runs on, what it stores, whether it touches the network, its dependencies and its license.
+2. pick a format from the entry's USE section. the same tool often offers several.
+3. run it. single-file tools open from disk with no server. cli tools run under node: `node canon.js` is the pattern.
+4. keep the entry's exit codes in mind if you script it. an entry lists them when they matter.
+
+## The Table
+
+every entry carries the same table, so you can compare tools at a glance.
+
+| field | tells you |
+|---|---|
+| runs on | node, a browser, or both |
+| formats | which of the [distribution formats](/general/formats/) it ships in |
+| network | none, or exactly what it contacts |
+| stores | files it writes, and where |
+| dependencies | anything beyond node |
+| license | Apache-2.0 for DFM tools |
+
+## Package Manager
+
+tools that have a build step use pnpm. an entry that says otherwise is out of date.

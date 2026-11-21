@@ -1,0 +1,26 @@
+---
+title: "Credits"
+description: "the third-party free software the sectors and stations are built on"
+sidebar:
+  order: 1
+draft: true
+---
+
+the stations that run on third-party free, open-source software, and the shared libraries the sector sites lean on, are credited here.
+
+redistribution terms are recorded as `unstated` where don't feed machines self-hosts a service without redistributing it.
+
+## Self-Hosted Stations
+
+1. **Ergo** powers the IRC server in [comms](/ecosystem/stations/comms/).
+2. **The Lounge** is the browser chat client in [comms](/ecosystem/stations/comms/).
+3. **Mumble** (the mumble-voip server image) runs the voice rooms in [comms](/ecosystem/stations/comms/).
+4. **Flarum**, on MariaDB, runs the [forum station](/ecosystem/stations/forum/).
+5. **Directus** on **PostgreSQL** is the back office behind the [jobs station](/ecosystem/stations/jobs/).
+
+custom-built stations ([help](/ecosystem/stations/help/), [stats](/ecosystem/stations/stats/), [learn](/ecosystem/stations/learn/), [refs](/ecosystem/stations/refs/), [dfm tools](/ecosystem/stations/dfm-tools/)) run on Astro and Cloudflare Workers.
+
+## Shared Libraries
+
+1. **@noble/ed25519** is the Ed25519 implementation [humanlayer](/ecosystem/sectors/humanlayer/) and the static-site seals use in both browser and server, one code path through [@dontfeedmachines/fieldkit](/ecosystem/packages/fieldkit/).
+2. **figlet** and **marked** are used inside `@dontfeedmachines/fieldkit` for ASCII/ANSI headers and markdown rendering.

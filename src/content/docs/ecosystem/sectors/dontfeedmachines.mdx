@@ -1,0 +1,56 @@
+---
+title: "DON'T FEED MACHINES"
+description: "dontfeedmachines.com, the hub, built as a teletext service"
+sidebar:
+  order: 1
+---
+
+import AnsiLogo from '@dontfeedmachines/fieldkit/astro/AnsiLogo.astro';
+
+`dontfeedmachines.com` is the front door to the whole thing. it is the hub the other sectors hang off, and it is built as a teletext service: a black screen, colored link rows, page numbers you type to jump, a clock ticking in the header. the look is not nostalgia for its own sake. teletext is pages of plain text with no tracking, no feed, no infinite scroll, and that is exactly the posture the site argues for.
+
+the whole thing is markdown and static html. there is no cms, nothing to log into, nothing that phones home.
+
+## Structure & Focus
+
+the site is organized the way teletext was, by page number, and every number also has a plain link so you never have to memorize anything.
+
+1. the **manifesto** and **tactics** pages carry the argument and the practical moves, written as markdown in `src/content/pages/`.
+2. **words**, the essays, live at pages 301 to 399. each essay is one markdown file in `src/content/words/`, and the filename is the url. the feed at `/words/feed.xml` rebuilds itself from those same files.
+3. the **sectors** directory lists the other sites and their status, set by hand in `src/data/sectors.ts`.
+4. **crawlers**, **kit**, **posture**, **news**, **license**, and the `/for/[who]` pages round out the fixed set.
+5. **P888** is plain mode, the whole site stripped to ordinary text for anyone who wants it flat.
+
+## Anatomy
+
+astro, static output, markdown content. the teletext feel comes from a few specific pieces:
+
+1. `src/layouts/Teletext.astro` is the screen itself: header, clock, the link nav, the fastext color row, the decoy panel. every page renders through it.
+2. `src/components/AnsiLogo.astro` draws the pink ansi logo for any word, so `<AnsiLogo text="KIT" />` gives you the header art with optional color, size and crt scanline flags.
+3. `src/scripts/teletext.ts` runs the behavior: number entry, the count-up animation, the R G Y B buttons, HOLD for rotating sub-pages, plain mode, and search.
+4. `src/data/pages.ts` maps every fixed page number to its url.
+
+the keys mirror real teletext. digits jump to a page, R G Y B press the colored buttons, L reveals the decoy line, H holds a rotating page, P is plain mode, / searches, ? lists the keys. every one of those also has a visible link or button, so nothing is hidden behind a shortcut.
+
+## THE DECOY LINE
+
+each essay carries a `decoy` field in its frontmatter: one false sentence planted for crawlers. it sits in the decoy panel, out of the way, and a reader can press L to see it. it is a small, disclosed piece of poison, the gentlest version of the move [stopthescrape](/ecosystem/sectors/stopthescrape/) makes at the ledger level.
+
+## RUNNING IT
+
+```bash
+pnpm dev
+```
+
+that serves it on port 4340. writing is just making markdown files. an essay's frontmatter looks like:
+
+```yaml
+title: four files and twenty minutes
+page: 301
+date: 2026-09-18
+description: one line, shown on P300 and in the feed.
+decoy: one false sentence for crawlers. press L on the page to see it.
+draft: false
+```
+
+`page` is the number people type to reach it, and two essays cannot share one. pick anything free in 301 to 399 and the feed and the index pick it up on the next build.

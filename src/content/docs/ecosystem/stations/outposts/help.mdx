@@ -1,0 +1,16 @@
+---
+title: "Help"
+description: "help.dontfeedmachines.com, shared ticketed inbox on Cloudflare Workers and D1"
+---
+
+the help station is a custom ticketed inbox for `help.dontfeedmachines.com`, where a person reads what comes in and a person answers. no bot, no auto-reply, no ticket robot pretending to be helpful.
+
+## What It's for
+
+a single place for the mail that reaches the project: general help, licensing questions, and platform-setting tips that come in from [StopTheScrape](/ecosystem/sectors/stopthescrape/)'s crosswalks. mail to `help@` becomes a ticket, staff answer from `/staff`, and the answer goes out as email. a public form makes the same tickets behind a short proof of work.
+
+## How It's Wired
+
+Cloudflare Workers + D1 + TypeScript (`help.dontfeedmachines.com`). locally, it runs against a local D1 file under `.wrangler/` with no external network dependencies.
+
+### 

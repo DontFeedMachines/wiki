@@ -1,0 +1,59 @@
+---
+title: "Middleware Overview"
+description: "the server, npm and web-embed builds of a tool, and how each is run or dropped into another project"
+sidebar:
+  order: 4
+---
+
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+this page shows how each middleware form is used, with CANON as the worked example. every tool that ships these forms follows the same shape.
+
+## SERVER
+
+a node daemon, `server/server.js`. it serves the tool's page and static files, answers a health check, and exposes a verify endpoint. localhost only.
+
+1. start it: `node server/server.js`.
+2. hit the health endpoint to confirm it is up.
+3. open the served page, or call the verify endpoint from another program.
+4. stop it with ctrl-c. it keeps no state across runs unless the entry names a file.
+
+## NPM PACKAGE
+
+the tool's core as a library plus a command line `bin`, published as `@dontfeedmachines/<tool>`, for example `@dontfeedmachines/canon`.
+
+1. add it with pnpm: `pnpm add @dontfeedmachines/canon`.
+2. import the core functions in your own code, or run the bin through `pnpm exec`.
+3. the package ships its `LICENSE` and `NOTICE` and nothing else you did not ask for.
+
+a published version is permanent, so pin the one you tested.
+
+## WEB-EMBED
+
+a custom html element with a shadow dom, for example `<dfm-canon-verify>` in `web-embed/dfm-canon-verify.js`.
+
+<Tabs>
+  <TabItem label="use">
+
+1. load the script with a normal `<script>` tag from a copy you host yourself.
+2. place the element in your page.
+3. listen for its event, `dfm-verify` for the canon element, to read the result.
+
+  </TabItem>
+  <TabItem label="why shadow dom">
+
+the element isolates its styles, so it cannot restyle your page and your page cannot restyle it.
+
+  </TabItem>
+</Tabs>
+
+<Aside type="note" title="SHARED REGISTRY">
+the sector sites read tools through `loadBundle(drawer)` in `@dontfeedmachines/fieldkit/node/registry`. that registry is also middleware: it stands between the toolkit entries and the pages that list them.
+</Aside>
+
+## WHICH ONE
+
+1. calling it from a script on your machine: server.
+2. calling it from your own node project: npm.
+3. showing it inside a web page: web-embed.
+4. none of those, you just want the tool: skip this page and use [Software Overview](/guides/toolkit/software/).

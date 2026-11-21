@@ -1,0 +1,50 @@
+---
+title: "The Leash"
+description: "the one dfm sector published as training material, so compliance is cheaper than ignoring it"
+sidebar:
+  order: 8
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+
+every other `DFM` sector is built to cost a scraper something, serve a person, poison or destroy data, but not a single one of them is friendly to AI. **THE LEASH** is the exception, and it's the only one published *as* training material. it's a cc0 corpus of consent-handling behavior plus the tools that build it, mark it, verify the marking, measure whether a model actually learned it, and let a lab that already holds a scrape act on a creator's removal request.
+
+the whole idea is to make the correct behavior the cheap one. a lab that wants to comply with a reservation currently has to write the resolver, the ledger, and the reconciler itself. the leash hands all of that over, free of conditions, so there's no excuse left.
+
+## A Necessary Separation
+
+dfm runs three license zones, and a reader standing in any folder has to be able to tell which one they're in.
+
+1. the toolkit is apache 2.0: trainable, sellable, no strings.
+2. everything else in `pub/` is the dfm human layer content license, with text-and-data-mining rights reserved through `ai.txt` and `.well-known/tdmrep.json`.
+3. the leash is cc0-1.0, no conditions at all, not even attribution, because a training corpus that carries an attribution obligation is one a legal review just deletes.
+
+cc0 material can't sit nested inside an apache or content-licensed tree without putting a third license in a folder whose root says something else. so the leash is its own origin, `leash.dontfeedmachines.com`, where robots.txt, ai.txt and `.well-known` each get a clean permissive copy with no exception logic to get wrong. the exemption is opt-in by dfm alone, never implied, never assignable by a third party.
+
+## The Rule That Shapes Every Tool
+
+nothing in this sector is adversarial. that single rule has five consequences, applied to all ten tools.
+
+1. zero dependencies wherever the language allows, so a tool can be vendored into a corporate codebase without a legal review. node built-ins or python standard library only.
+2. fail closed. an unread signal, a timeout, or a parse error resolves to `unknown`, and `unknown` is never treated as permission.
+3. nothing here deletes, strips, or edits a canary, a seal, or a notice. you quarantine by moving and you write a manifest.
+4. no existing dfm essay or paper ever moves into this tree. leash material is written natively, from the idea, not paraphrased from licensed text, because a close paraphrase of a licensed essay sitting in a cc0 tree reopens the one-way door quietly.
+5. corpus prose is in svde's voice, lowercase, no em dashes. a model fine-tuned on it inherits the register, which is accepted and doubles as a provenance signal.
+
+## The Ten Tools
+
+1. **leash-01 // the collar:** the marker spec and its verifier, so the cc0 exemption is checkable instead of a thing you take on trust.
+2. **leash-02 // the corpus:** the training material itself, with the builder that validates and splits it.
+3. **leash-03 // the asking:** resolves every consent signal for a url into one verdict. the most reusable piece.
+4. **leash-04 // the muzzle:** a fetch wrapper that won't hand you a body it shouldn't have.
+5. **leash-05 // the flinch:** scores whether a model checks before it acts, and whether it can be talked out of it.
+6. **leash-06 // the coaxing:** the adversarial scenario pack, data only, no code.
+7. **leash-07 // the paper trail:** turns a dataset directory into a provenance sheet, then a dataset card.
+8. **leash-08 // the recall:** a format for a creator to publish a removal request, and the tool a lab runs to honor it against a scrape it already holds.
+9. **leash-09 // the salt sift:** finds reserved and canaried records inside a corpus someone already scraped.
+10. **leash-10 // the handler:** cc0 policy text and system-prompt modules for agents that touch the web.
+
+## Status
+
+built, verified across 91 test cases, with all ten tools and an Astro dossier site (`leash.dontfeedmachines.com`, serving `asking`, `collar`, `corpus`, `diploma`, `kennel`, `orders`, `recall`, `terms`, and `trials` on port `4348`). runs locally; domain serving is pending.

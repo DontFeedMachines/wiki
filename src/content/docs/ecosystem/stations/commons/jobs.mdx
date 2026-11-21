@@ -1,0 +1,20 @@
+---
+title: "Jobs"
+description: "jobs.humanlayer.vip, a directus back office behind humanlayer's /jobs"
+---
+
+## OVERVIEW
+
+the jobs station is the back office for listings: Directus 11 on Postgres 16. it holds the data, and [HUMANLAYER's /jobs](/ecosystem/sectors/humanlayer/) is the front end that reads and writes it. staff work in Directus, everyone else sees the clean page on humanlayer.vip.
+
+## WHAT IT'S FOR
+
+a quiet back end for jobs, services, support, and goods. a listing comes in pending, a person approves or rejects it, and the approved ones surface on the public page. no feed, no ranking, just a reviewed list.
+
+## HOW IT'S WIRED
+
+Directus runs at `jobs.humanlayer.vip`, staff only, with the public reading happening through HUMANLAYER. the island is APPROVED. HUMANLAYER talks to it through the `DIRECTUS_URL`, `DIRECTUS_READ_TOKEN` and `DIRECTUS_WRITE_TOKEN` environment values; unset, HUMANLAYER's `/jobs` simply says it isn't connected.
+
+## SETUP
+
+copy `.env.example` to `.env` and fill every value, `docker compose up -d`, then sign in and make a `jobs` collection with the fields: `status` (published / pending / rejected, default pending), `title`, `org`, `tier` (free / bespoke), `location`, `pay`, and `url`. that schema is what the HUMANLAYER front end expects.

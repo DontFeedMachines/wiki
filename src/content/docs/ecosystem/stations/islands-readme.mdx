@@ -1,0 +1,49 @@
+---
+title: "Stations README"
+description: "the commons, outposts, and workshops that support the main sectors"
+sidebar:
+  order: 0
+  label: Stations README
+slug: ecosystems/stations/index.mdx
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+where the **Sectors** are the public-facing campaigns & labs, the **Stations** are the supporting infrastructure around them comprised of standalone systems of collected tools. each with their own focus & goals, they are broken into 4 sub-categories: outposts, commons, workshops, and protocols.
+
+## Outposts
+
+<CardGrid>
+  <LinkCard title="Help" description="help.dontfeedmachines.com, shared ticketed inbox on Cloudflare Workers and D1." href="/ecosystem/stations/help/" />
+  <LinkCard title="Stats" description="stats.dontfeedmachines.com, crawler and page-view counts with no visitor tracking." href="/ecosystem/stations/stats/" />
+  <LinkCard title="Resources" description="rsrc.dontfeedmachines.com, plain markdown docs, templates, and legal files." href="/ecosystem/stations/resources/" />
+  <LinkCard title="Legal" description="legal.dontfeedmachines.com, verbatim licenses, covenant, privacy, and terms." href="/ecosystem/stations/legal/" />
+  <LinkCard title="Portal" description="portal.dontfeedmachines.com, holding landing page for parked sector domains." href="/ecosystem/stations/portal/" />
+</CardGrid>
+
+## Commons
+
+<CardGrid>
+  <LinkCard title="Learn" description="learn.dontfeedmachines.com, member-written walkthroughs." href="/ecosystem/stations/learn/" />
+  <LinkCard title="Refs" description="refs.humanlayer.vip, curated contact-sheet reference library." href="/ecosystem/stations/refs/" />
+  <LinkCard title="Comms" description="comms.humanlayer.vip, IRC, web chat, and Mumble voice rooms." href="/ecosystem/stations/comms/" />
+  <LinkCard title="Forum" description="forum.humanlayer.vip, durable threaded discussion." href="/ecosystem/stations/forum/" />
+  <LinkCard title="Jobs" description="jobs.humanlayer.vip, back office for HumanLayer listings." href="/ecosystem/stations/jobs/" />
+</CardGrid>
+
+## Workshops
+
+<LinkCard
+  title="Toolkit"
+  description="dfm.tools, catalog and host router for standalone tools."
+  href="/ecosystem/stations/dfm-tools/"
+/>
+
+## Protocols
+
+where the sites & stations are places, the protocols can be seen as interconnective systems running through them, carrying bit & pieces from different sectors & stations and embedding them in shared tools/instruments, frameworks, packages, libraries, and more. how a page proves a person made it, how DFM records & grades the companies that take human work, how a lab that wants to comply finally can, and the rules for DFM ever training a model of its own.
+
+<CardGrid>
+  <LinkCard title="BloodOath" description="the seal that proves a person made a page, and breaks if a byte changes" href="/ecosystem/protocols/bloodoath/" />
+  <LinkCard title="HUMANLAYER Models" description="small public models trained on consented open data, on owned hardware, with every source disclosed" href="/ecosystem/protocols/humanlayer-models/" />
+</CardGrid>

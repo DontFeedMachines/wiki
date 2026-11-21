@@ -1,0 +1,54 @@
+---
+title: "Hardware Overview"
+description: "the physical builds: what each drawer holds and how an entry is laid out and used"
+sidebar:
+  order: 1
+---
+
+import { CardGrid, Card, Steps } from '@astrojs/starlight/components';
+
+this is the implementation side of hardware. this page shows the planned hardware drawers and how a build entry is laid out and used.
+
+## DRAWERS
+
+<CardGrid>
+  <Card title="Hardware Access">
+    usb data blocker, data cable checker, nfc skimming detector, magstripe spoofer, drive destruction jig, smart dust sweeper, the dumb companion.
+  </Card>
+  <Card title="Acoustic Defense">
+    mask, jam and detect microphones and ultrasonic sensors.
+  </Card>
+  <Card title="RF Security">
+    wireless tracking, rogue access points, ble beacons.
+  </Card>
+  <Card title="Visual Evasion">
+    ir camera blinder, ir emitter sniffer, thermal decoy, adversarial clothing, drone evasion umbrella, biometric spoofing putty.
+  </Card>
+  <Card title="OpSec">
+    data detoxes and covering your tracks.
+  </Card>
+</CardGrid>
+
+## HOW AN ENTRY IS LAID OUT
+
+1. the claim: what it stops or detects, in one paragraph.
+2. the at-a-glance table: parts count, cost, skill level, whether it needs firmware.
+3. the parts list.
+4. the build, as numbered steps.
+5. the test: how you confirm it works against the thing it claims to stop.
+
+## USING ONE
+
+<Steps>
+
+1. pick the entry that matches the threat.
+2. buy the parts from the list. nothing in an entry requires an account or a proprietary part.
+3. solder it, following the [Build Guides](/guides/builds/).
+4. flash the firmware if the entry has any: [Firmware Overview](/guides/toolkit/firmware/).
+5. run the test at the bottom of the entry. if it fails, the entry's troubleshooting section comes first, then reopen the build.
+
+</Steps>
+
+## WHAT THE TABLE MEANS
+
+cost and part counts differ per entry and are TBD until each build is priced. a field that reads TBD is an honest gap, not a hidden number.

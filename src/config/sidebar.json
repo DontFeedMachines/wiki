@@ -1,0 +1,17 @@
+{
+  "main": [
+    {
+      "label": "Ecosystem",
+      "items": [{ "autogenerate": { "directory": "ecosystem" } }],
+      "collapsed": true
+    },
+    {
+      "label": "General",
+      "items": [{ "autogenerate": { "directory": "general" } }]
+    },
+    {
+      "label": "Guides",
+      "items": [{ "autogenerate": { "directory": "guides" } }]
+    }
+  ]
+}

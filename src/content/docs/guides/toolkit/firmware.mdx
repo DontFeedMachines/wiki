@@ -1,0 +1,61 @@
+---
+title: "Firmware Overview"
+description: "the firmware that ships with the hardware builds, and the exact steps to flash and verify it"
+sidebar:
+  order: 2
+---
+
+import { Aside, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+the implementation side of firmware. the [Firmware Guide](/guides/firmware/) explains why firmware is open and how to trust it; this page is the routine you run.
+
+## WHAT SHIPS
+
+each hardware build that needs firmware publishes it on its own release page, as a single file plus its sha-256.
+
+| chip | file | tool |
+|---|---|---|
+| esp32 | `.bin` | esptool, needs python 3 |
+| rp2040 | `.uf2` | none, copy the file to the mounted drive |
+
+## FLASH IT
+
+<Tabs>
+  <TabItem label="esp32">
+
+<Steps>
+
+1. check the hash: `shasum -a 256 firmware.bin` has to match the release page.
+2. install esptool.
+3. plug in the board with a data cable and find its serial port.
+4. write the file with esptool. the exact offset and flags are in the build's own entry, since they differ per board.
+5. reset the board and confirm it behaves as the entry's test says.
+
+</Steps>
+
+  </TabItem>
+  <TabItem label="rp2040">
+
+<Steps>
+
+1. check the hash: `shasum -a 256 firmware.uf2` has to match the release page.
+2. hold the boot button and plug the board in.
+3. the board mounts as a drive. drop the `.uf2` on it.
+4. the board reboots on its own once the copy ends.
+
+</Steps>
+
+  </TabItem>
+</Tabs>
+
+<Aside type="caution" title="NO PORT">
+if the board never shows up, swap the cable before you suspect the board. a charge-only cable has no data lines.
+</Aside>
+
+## VERIFY AFTER
+
+1. run the build's test from its entry.
+2. note the hash and the release you flashed, in a text file next to the board's notes.
+3. a build that misbehaves gets reflashed before it gets debugged.
+
+source and build instructions for each firmware live in its own entry. entries without published firmware yet read TBD.

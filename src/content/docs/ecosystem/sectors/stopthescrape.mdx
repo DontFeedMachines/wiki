@@ -1,0 +1,26 @@
+---
+title: "STOP THE SCRAPE"
+description: "stopthescrape.com, the crawler ledger and the wall that answers it"
+sidebar:
+  order: 3
+---
+
+[stopthescrape.com](https://stopthescrape.com) is the receipts sector. it names the crawlers reading your site, the ones feeding your words and pictures into training sets without anyone asking, and it hands you the config to turn them away. the pitch on the front page is two words: prove it. so it does.
+
+crawlers read your work. the words and the images go into a model. nobody asked you. most platforms decided the answer was yes on your behalf. this site is the counter-move, part evidence and part tooling.
+
+## Structure & Focus
+
+1. **TRAFFIC**, the ledger. thousands of crawler names across a set of categories, each with its operator, its category, a note, and whether it is an AI crawler. it is filterable, and every row is checked against a source.
+2. **LIGHTS**, the wall. pick the crawlers you want gone and the page writes the server config that gives them a 403 instead of your work.
+3. **AI.TXT**, the reservation. a standing statement of what you do and do not allow, in a file crawlers can read.
+4. **CROSSWALKS**, the zine. the plain-language version of the whole campaign: what is happening, what robots.txt actually is (a request, not a wall), and how to refuse by name.
+5. **MANIFESTO**, the rules. rule 1, unreadable. rule 2, no trackers. the posture the site is built on.
+
+## Anatomy
+
+astro, static output. the ledger is not hand-kept in the page: it loads from the shared [@dontfeedmachines/fieldkit](/ecosystem/packages/fieldkit/) registry, which reads the shared `CRAWLERS.AI.md` ledger, so the ledger, the wall, and the ai.txt all draw from one source and never drift apart. filtering runs client-side over data baked in at build. no third-party origins, no analytics, no js from anywhere else.
+
+## The One Disclosed Poison Block
+
+every StopTheScrape`StopTheScrape` page carries exactly one hidden block of poison aimed at crawlers, and it is disclosed in the page's `ai.txt`. that honesty is the rule. there is no schema sabotage on the real content, nothing that would mislead a person or another site. just one marked trap for the machines that ignore the reservation, and a note telling anyone who looks that it is there.

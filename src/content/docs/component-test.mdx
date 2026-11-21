@@ -1,0 +1,304 @@
+---
+title: Component Test Page
+description: every component in the wiki, rendered with real props.
+draft: true
+---
+
+import { Aside, Badge, Card, CardGrid, Code, FileTree, Icon, LinkButton as SlLinkButton, LinkCard, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import AnsiLogo from '@dontfeedmachines/fieldkit/astro/AnsiLogo.astro';
+import BomTable from '@dontfeedmachines/fieldkit/astro/BomTable.astro';
+import BuildStep from '@dontfeedmachines/fieldkit/astro/BuildStep.astro';
+import BuildSteps from '@dontfeedmachines/fieldkit/astro/BuildSteps.astro';
+import Difficulty from '@dontfeedmachines/fieldkit/astro/Difficulty.astro';
+import Glossary from '@dontfeedmachines/fieldkit/astro/Glossary.astro';
+import Grid from '@dontfeedmachines/fieldkit/astro/Grid.astro';
+import ImageMod from '@dontfeedmachines/fieldkit/astro/ImageMod.astro';
+import InteractiveCircuit from '@dontfeedmachines/fieldkit/astro/InteractiveCircuit.astro';
+import LegalWarning from '@dontfeedmachines/fieldkit/astro/LegalWarning.astro';
+import SpecTable from '@dontfeedmachines/fieldkit/astro/SpecTable.astro';
+import ThreatLevel from '@dontfeedmachines/fieldkit/astro/ThreatLevel.astro';
+import ThreatModel from '@dontfeedmachines/fieldkit/astro/ThreatModel.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionContainer from '../../components/AccordionContainer.astro';
+import Button from '../../components/Button.astro';
+import HeroTabs from '../../components/HeroTabs.astro';
+import HeroTabsItem from '../../components/HeroTabsItem.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import ListCard from '../../components/ListCard.astro';
+import MobileTableOfContents from '../../components/MobileTableOfContents.astro';
+import NewCard from '../../components/NewCard.astro';
+import Section from '../../components/Section.astro';
+import ThemeDemo from '../../components/ThemeDemo.astro';
+
+every component the wiki ships, with real props, in four groups: Starlight native, the DFM package (`@dontfeedmachines/fieldkit/astro`), the DocKit template components that live in the wiki, and the page chrome you are looking at right now.
+
+---
+
+## STARLIGHT NATIVE
+
+### badges
+
+<Badge text="New" variant="success" />
+<Badge text="Deprecated" variant="danger" />
+<Badge text="Note" variant="note" />
+<Badge text="Tip" variant="tip" />
+<Badge text="Caution" variant="caution" />
+
+### cards, grid and icons
+
+<CardGrid>
+  <Card title="Hardware Focus" icon="setting">
+    build your own countermeasures.
+  </Card>
+  <Card title="Offline Ready" icon="sun">
+    no internet required.
+  </Card>
+</CardGrid>
+
+<Icon name="magnifier" size="2rem" /> <Icon name="warning" size="2rem" /> <Icon name="rocket" size="2rem" />
+
+### tabs
+
+<Tabs>
+  <TabItem label="Linux">
+    `apt-get install freedom`
+  </TabItem>
+  <TabItem label="MacOS">
+    `brew install freedom`
+  </TabItem>
+</Tabs>
+
+### steps
+
+<Steps>
+1. Prepare your components.
+2. Read the schematics carefully.
+3. Assemble the device.
+4. Go off grid.
+</Steps>
+
+### asides
+
+<Aside type="note">a plain note.</Aside>
+<Aside type="tip">a tip.</Aside>
+<Aside type="caution">a caution.</Aside>
+<Aside type="danger" title="DATA CABLE">a danger callout with a custom title.</Aside>
+
+### file tree
+
+<FileTree>
+- firmware/
+  - main.c
+  - config.h
+- hardware/
+  - board.kicad_pcb
+  - README.md
+</FileTree>
+
+### code
+
+<Code code={`esptool.py --chip esp32 write_flash 0x1000 firmware.bin`} lang="bash" title="flash.sh" />
+
+### link card and link button
+
+<LinkCard title="Firmware Guide" description="what firmware does on a DFM board." href="/guides/firmware/" />
+
+<SlLinkButton href="/guides/firmware/" variant="primary">starlight link button</SlLinkButton>
+
+---
+
+## DFM PACKAGE (@dontfeedmachines/fieldkit/astro)
+
+### ansi logo
+
+<AnsiLogo text="DFM" size={22} />
+
+<AnsiLogo text="WIKI" color="#0ff" size={18} crt={false} align="left" />
+
+### glossary tooltip
+
+the modern internet leans on <Glossary term="ALPR" definition="Automated License Plate Reader: a system using OCR to track vehicle movements." /> tracking. hover the term.
+
+### threat level callouts
+
+<ThreatLevel level="low" title="OPSEC: LOW RISK">
+  this procedure leaves minimal digital exhaust. safe to proceed.
+</ThreatLevel>
+
+<ThreatLevel level="medium">
+  the device logs a timestamp to local storage. wipe it after each session.
+</ThreatLevel>
+
+<ThreatLevel level="high">
+  the radio transmits on a fixed channel and can be located by direction finding.
+</ThreatLevel>
+
+<ThreatLevel level="critical">
+  connecting this device to a public network exposes your physical location. do not attempt without proxy routing.
+</ThreatLevel>
+
+### threat model
+
+<ThreatModel vectors={["acoustic", "rf"]} />
+
+### difficulty
+
+<Difficulty level={2} />
+
+<Difficulty level={5} label="Soldering Difficulty" />
+
+### legal warning
+
+<LegalWarning />
+
+<LegalWarning jurisdiction="the United States" />
+
+### specification table
+
+<SpecTable
+  title="Smart Dust Sweeper Specs"
+  specs={{
+    "Power Draw": "3.3V DC",
+    "Effective Range": "10 meters",
+    "Frequencies": "2.4GHz - 5GHz",
+    "Est. Build Cost": "$45.00"
+  }}
+/>
+
+### bill of materials
+
+<BomTable
+  items={[
+    { name: "ESP32-S3 dev board", qty: 1, cost: "$9.00", link: "https://www.espressif.com/", notes: "any S3 board with usb" },
+    { name: "10k resistor", qty: 3, cost: "$0.10", notes: "pull-ups on pins 4, 5, 6" },
+    { name: "SMA antenna", qty: 1, cost: "$4.50" }
+  ]}
+/>
+
+### build tracker
+
+<BuildSteps>
+  <BuildStep title="Solder the resistors to the main board" stepNumber={1}>
+    use 10k ohm pull-up resistors on pins 4, 5, and 6. avoid cold joints.
+  </BuildStep>
+  <BuildStep title="Attach the RF antenna" stepNumber={2}>
+    mount the directional antenna facing outwards. do not overtighten the SMA connector.
+  </BuildStep>
+  <BuildStep title="Flash the firmware" stepNumber={3}>
+    connect via USB and push the compiled binary using `avrdude`.
+  </BuildStep>
+</BuildSteps>
+
+### interactive circuit diagram
+
+<InteractiveCircuit title="Basic Oscillator Circuit">
+  <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" stroke="#4ade80" fill="none" stroke-width="2">
+    <rect width="190" height="90" x="5" y="5" stroke="#333" />
+    {/* Node 1 */}
+    <g class="interactive-node" data-title="555 Timer IC" data-desc="The heart of the oscillator. Generates the square wave.">
+      <rect x="75" y="25" width="50" height="50" fill="#111" stroke="#4ade80" />
+      <text x="100" y="55" fill="#4ade80" font-size="12" text-anchor="middle" stroke="none">555</text>
+    </g>
+    {/* Node 2 */}
+    <g class="interactive-node" data-title="10k Resistor (R1)" data-desc="Controls the charge rate of the capacitor.">
+      <polyline points="20,50 30,50 35,40 45,60 55,40 65,60 70,50 75,50" />
+    </g>
+    {/* Node 3 */}
+    <g class="interactive-node" data-title="Output LED" data-desc="Flashes based on the oscillator frequency.">
+      <circle cx="150" cy="50" r="10" />
+      <line x1="125" y1="50" x2="140" y2="50" />
+    </g>
+  </svg>
+</InteractiveCircuit>
+
+### grid
+
+<Grid columns={3}>
+  <Card title="One">first cell.</Card>
+  <Card title="Two">second cell.</Card>
+  <Card title="Three">third cell.</Card>
+</Grid>
+
+### image mod
+
+<ImageMod src="/src/assets/logos/dfm_icon.png" alt="DFM icon" width={128} height={128} />
+
+---
+
+## DOCKIT TEMPLATE COMPONENTS (in the wiki)
+
+### button
+
+<Button label="Primary" link="/guides/firmware/" variant="primary" />
+<Button label="Outline" link="/guides/firmware/" variant="outline-primary" />
+
+### link button
+
+<LinkButton href="/guides/firmware/" variant="text">text variant</LinkButton>
+
+### section
+
+<Section title="Section Title" description="a section wraps a heading, a description and a slot.">
+  <p>slot content sits under the heading.</p>
+</Section>
+
+### new card
+
+<CardGrid>
+  <NewCard icon="rocket" title="Large Card">large size, with the arrow.</NewCard>
+  <NewCard icon="setting" title="Small Card" size="sm">small size.</NewCard>
+</CardGrid>
+
+### list card
+
+<ListCard title="Plain List Card" imageIcon="/src/assets/logos/dfm_icon.png" number={12}>
+  a list card with an icon and an article count.
+</ListCard>
+
+<ListCard title="Wide List Card" imageIcon="/src/assets/logos/dfm_icon.png" image="/src/assets/logos/dfm_icon.png" number={4}>
+  the wide form puts an image beside the text.
+</ListCard>
+
+### accordion and accordion container
+
+<AccordionContainer tabList={[
+  { type: "build", icon: "rocket", title: "Build" },
+  { type: "legal", icon: "support", title: "Legal" }
+]}>
+  <Accordion type="build" question="What do I need to start?" answer="A soldering iron, a bench supply and the parts list." />
+  <Accordion type="build" question="How long does a build take?" answer="Most builds take an afternoon." />
+  <Accordion type="legal" question="Is this legal to build?" answer="It depends on your jurisdiction. read the legal warning on the entry." />
+</AccordionContainer>
+
+### hero tabs
+
+<HeroTabs>
+  <HeroTabsItem title="Build" subtitle="parts, schematic, firmware" number={1} image="/src/assets/logos/dfm_icon.png" imageAlt="DFM icon" isActive={true} />
+  <HeroTabsItem title="Defend" subtitle="threat models and opsec" number={2} image="/src/assets/logos/dfm_icon.png" imageAlt="DFM icon" />
+</HeroTabs>
+
+### theme demo
+
+<ThemeDemo darkImage="/src/assets/logos/dfm_icon.png" lightImage="/src/assets/logos/dfm_icon.png" />
+
+### mobile table of contents
+
+<MobileTableOfContents inline />
+
+---
+
+## PAGE CHROME (already on screen)
+
+these only render inside the page frame, so there is nothing to embed. each one is on this page or on the home page:
+
+| component | where |
+|---|---|
+| Head | document head |
+| Header, SiteTitle, Search, ThemeSwitch, MobileMenuToggle | top bar |
+| Hero | home page index |
+| PageFrame, TwoColumnContent, ContentPanel | the layout around this text |
+| Sidebar, SidebarSublist, SidebarNav, SidebarRestorePoint | left navigation |
+| PageSidebar, TableOfContents, TableOfContentsList | right rail |
+| Breadcrumb | above the title |
+| Pagination | below the content |
+| Footer, CTA | home page and pages without a sidebar |
