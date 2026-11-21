@@ -38,7 +38,8 @@ export default defineConfig({
       logo: {
         light: logo,
         dark: logo_darkmode,
-        alt: "DocKit Logo",
+        alt: "DFM wordmark",
+        src: './src/assets/logos/dfm-wordmark.svg' }
       },
       // @ts-ignore
       social: social.main || [],
