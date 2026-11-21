@@ -5,7 +5,7 @@
 
 ### Fixed
 
-- `builds/index.mdx` now imports `LinkCard` from the starlight components, which fixes the build error on the `/builds` page
+- `builds/index.mdx` and `how-to/index.mdx` now import `LinkCard` from the starlight components, which fixes the build errors on the `/builds` and `/how-to` pages
 
 ## [Unreleased] 2026-11-18
 
