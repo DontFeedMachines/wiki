@@ -3,6 +3,10 @@
 
 ## [Unreleased] 2026-11-20
 
+### Added
+
+- `src/assets/logos/dfm-wordmark.svg`, the ANSI Shadow `DFM` wordmark redrawn as scalable vector shapes, with `--dfm-face` and `--dfm-shadow` color variables
+
 ### Fixed
 
 - `builds/index.mdx` and `how-to/index.mdx` now import `LinkCard` from the starlight components, which fixes the build errors on the `/builds` and `/how-to` pages
